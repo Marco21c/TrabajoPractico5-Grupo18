@@ -7,18 +7,12 @@
 </head>
 
 <body>
-<h1> INICIO </h1>
-<img alt="imagen de inicio" src= "..\static\images\images.jpg" height="300" title="Titulo"/>
-<header th:replace="/layouts/header::header"></header>
 
-<nav>
-  <ul>
-   <li><a href="index.html">INICIO</a></li>
-   <li><a href="agenda.html">AGENDA</a></li>
-   <li><a href="beneficios.html">BENEFICIOS Y BECAS</a></li>
-   <li><a href="contacto.html">CONTACTANOS</a></li>
-  </ul>
-</nav>
+<header th:replace="/layouts/header::header">
+	<h1> INICIO </h1>
+	<img alt="imagen de inicio" src= "..\static\images\images.jpg" height="300" title="Titulo"/>
+</header>
+
 
 <section> 
   <h2> Cursos con inscripcion abierta</h2>
