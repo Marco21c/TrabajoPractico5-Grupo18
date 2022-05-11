@@ -1,20 +1,37 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-		lang="es">
+<html xmlns:th="http:/thymeleaf.org">
 <head>
-<meta charset="UTF-8">
+    
+<meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 	<header th:fragment="header">
-		<nav>
-		  <ul>
-			  <li><a href="index.html">INICIO</a></li>
-			  <li><a href="agenda.html">AGENDA</a></li>
-			  <li><a href="beneficios.html">BENEFICIOS Y BECAS</a></li>
-			  <li><a href="contacto.html">CONTACTANOS</a></li>
-		  </ul>
-		</nav>
+	  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MENU</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">INICIO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">AGENDA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">BENEFICIOS Y BECAS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">CONTACTANOS</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 	</header>
+	
 </body>
 </html>
