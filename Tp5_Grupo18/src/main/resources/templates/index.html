@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-	<head>
+  <head>
 		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
 		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>	
 		<meta charset="utf-8">
 		<title>INICIO</title>
-	</head>
-	<body>
-		<header th:replace="/layouts/header::header">asasa</header>
-	    <h1> BIENVENIDOS</h1>
-	    <img src= "images/images.png" class="img-fluid" alt="imagen de inicio" title="Titulo">
-	    
-<section> 
-  <h2> Cursos con inscripcion abierta</h2>
-  <ol>
-  <li><a href="idiomas.html">IDIOMAS.</a></li>
-  <li><a href="diseño.html">DISEÑO.</a></li>
-  <li><a href="desarrollo.html">DESARROLLO.</a></li>
-  <li><a href="marketing.html">MARKETING.</a></li>
-  <li><a href="conferencias.html">CONFERENCIAS.</a></li>
-  </ol>
-</section>
-	    
-	    
-	   <footer th:replace="/layouts/footer::footer"></footer>
+  </head>
+  <body>
+	<header th:replace="/layouts/header::header">asasa</header> 
+    <h1> PORTAL DE CAPACITACION</h1>		
+ 
+   <div class="container px-4">
+     <div class="row gx-5">
+      <div class="col">
+      <div>
+        <section> 
+         <h2> Cursos con inscripciones abiertas</h2>	    
+           <ol >
+             <li><a href="idiomas.html">IDIOMAS.</a></li>
+             <li><a href="diseño.html">DISEÑO.</a></li>
+             <li><a href="desarrollo.html">DESARROLLO.</a></li>
+             <li><a href="marketing.html">MARKETING.</a></li>
+             <li><a href="conferencias.html">CONFERENCIAS.</a></li>
+           </ol>	
+        </section>
+      </div> 
+      </div>
+      <div class="col">
+      <div>
+          <img height= "300 px" src= "images/images.png" alt="imagen de inicio" title="Titulo">
+      </div>
+      </div>
+     </div>
+   </div> 
+    <footer th:replace="/layouts/footer::footer"></footer>
 	</body>
 </html>
