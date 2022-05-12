@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>	
-<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-<link rel="stylesheet" type="text/css" th:ref="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-<meta charset="utf-8">
-<title >PORTAL DE CAPACITACION</title>
-</head>
-<body>
-<header th:replace="/layouts/header::header"></header>
-<header>
-	<h1> INICIO </h1>
-	<img alt="imagen de inicio" src= "..\static\images\images.jpg" height="300" title="Titulo"/>
-</header>
-
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>	
+		<meta charset="utf-8">
+		<title>INICIO</title>
+	</head>
+	<body>
+		<header th:replace="/layouts/header::header">asasa</header>
+	    <h1> BIENVENIDOS</h1>
+	    <img src= "images/images.png" class="img-fluid" alt="imagen de inicio" title="Titulo">
+	    
 <section> 
   <h2> Cursos con inscripcion abierta</h2>
   <ol>
@@ -23,8 +21,8 @@
   <li><a href="conferencias.html">CONFERENCIAS.</a></li>
   </ol>
 </section>
-
-<footer th:replace="/layouts/footer::footer"></footer>
-
-</body>
+	    
+	    
+	   <footer th:replace="/layouts/footer::footer"></footer>
+	</body>
 </html>

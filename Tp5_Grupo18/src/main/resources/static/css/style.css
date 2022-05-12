@@ -1,18 +1,25 @@
 @charset "ISO-8859-1";
 p{
-	color: black;
+	color: rgb(44, 44, 44);
 }
 a{
-	color: #808000;
+	color: rgb(128, 64, 64);
 	font-size: 15px;
 }
 h1{
-	color: #408080;
+	color: black;
 	font-size:50px;
+	font-style:bold;
+	align-items: center;
+	display: flex;
+    justify-content: center;
+}
+body{
+	background-color:#95a3a8;
 }
 h2{
 	font-size: 30px;
-	color:#408120;
+	color: #254949;
 }
 footer{
 	font-size:15px;
