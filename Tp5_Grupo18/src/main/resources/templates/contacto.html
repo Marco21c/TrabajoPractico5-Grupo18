@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>PORTAL DE CAPACITACION</title>
 </head>
 <body>
-	<header>
-		<h1>CONTACTANOS</h1>
+	<header th:replace="/layouts/header::header"></header>
+	<h1>CONTACTANOS</h1>
 		<img alt="CONTACTO" src="../static/images/CONTACTO.jpg">
-		
-	</header>
+	
 	
 	<ul>
 		<li><a href="index.html">INICIO</a></li>
@@ -52,7 +51,7 @@
 		
 		<button type="submit">ENVIAR</button>
 	</form>
-		<footer>2022. Portal de Capacitacion - Av. Gral. Manuel Belgrano 789 - Telefono (388) 999999 S. S. de Jujuy Republica Argentina</footer>
+		<footer th:insert="/layouts/footer::footer"></footer>
 	
 </body>
 </html>

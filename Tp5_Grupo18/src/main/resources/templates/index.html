@@ -1,39 +1,38 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>PORTAL DE CAPACITACION</title>
-</head>
-
-<body>
-
-<header>
-<h1> INICIO </h1>
-<img alt="imagen de inicio" src= "..\static\images\images.jpg" height="300" title="Titulo"/>
-</header>
-
-<nav>
-  <ul>
-   <li><a href="index.html">INICIO</a></li>
-   <li><a href="agenda.html">AGENDA</a></li>
-   <li><a href="beneficios.html">BENEFICIOS Y BECAS</a></li>
-   <li><a href="contacto.html">CONTACTANOS</a></li>
-  </ul>
-</nav>
-
-<section> 
-  <h2> Cursos con inscripcion abierta</h2>
-  <ol>
-  <li><a href="idiomas.html">IDIOMAS.</a></li>
-  <li><a href="diseño.html">DISEÑO.</a></li>
-  <li><a href="desarrollo.html">DESARROLLO.</a></li>
-  <li><a href="marketing.html">MARKETING.</a></li>
-  <li><a href="conferencias.html">CONFERENCIAS.</a></li>
-  </ol>
-</section>
-
-<footer>
-<p> 2022. Portal de Capacitacion - Av. Gral. Manuel Belgrano 789 - Telefono (388) 999999 S. S. de Jujuy Republica Argentina. </p>
-</footer>
-</body>
+<html xmlns:th="http://thymeleaf.org">
+  <head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>	
+		<meta charset="utf-8">
+		<title>INICIO</title>
+  </head>
+  <body>
+	<header th:replace="/layouts/header::header">asasa</header> 
+    <h1> PORTAL DE CAPACITACION</h1>		
+ 
+   <div class="container px-0">
+     <div class="row gx-5">
+      <div class="col">
+      <div>
+        <section> 
+         <h2> Cursos con inscripciones abiertas</h2>	    
+           <ol >
+             <li><a href="idiomas.html">IDIOMAS.</a></li>
+             <li><a href="diseÃ±o.html">DISEÃ‘O.</a></li>
+             <li><a href="desarrollo.html">DESARROLLO.</a></li>
+             <li><a href="marketing.html">MARKETING.</a></li>
+             <li><a href="conferencias.html">CONFERENCIAS.</a></li>
+           </ol>	
+        </section>
+      </div> 
+      </div>
+      <div class="col">
+      <div>
+          <img height= "300 px" src= "images/images.png" alt="imagen de inicio" title="Titulo">
+      </div>
+      </div>
+     </div>
+   </div> 
+    <footer th:replace="/layouts/footer::footer"></footer>
+	</body>
 </html>
