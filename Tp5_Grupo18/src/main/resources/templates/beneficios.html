@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>PORTAL DE CAPACITACION</title>
 </head>
 <body>
 	<h1>BENEFICIOS Y BECAS</h1>
 	<img alt="imagen de beca" src="../static/images/BECA.jpg" title="beneficios">
-<nav>
-  <ul>
-	  <li><a href="index.html">INICIO</a></li>
-	  <li><a href="agenda.html">AGENDA</a></li>
-	  <li><a href="beneficios.html">BENEFICIOS Y BECAS</a></li>
-	  <li><a href="contacto.html">CONTACTANOS</a></li>
-  </ul>
-</nav>
+<header th:replace="/layouts/header::header"></header>
 <section>
 	<p>pagina en construccion</p>
 </section>
-	<footer>2022. Portal de Capacitacion - Av. Gral. Manuel Belgrano 789 - Telefono (388) 999999 S. S. de Jujuy Republica Argentina</footer>
+	<footer th:insert="/layouts/footer::footer"></footer>
 </body>
 
 </html>
