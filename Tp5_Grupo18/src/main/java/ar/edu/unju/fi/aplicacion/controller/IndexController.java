@@ -12,4 +12,8 @@ public class IndexController {
     	return "index";
     }
     
+    @RequestMapping("/contacto")
+    public String getIndexPage(Model model){
+    	return "contacto";
+    }
 }
