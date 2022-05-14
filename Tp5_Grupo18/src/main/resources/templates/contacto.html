@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <title>PORTAL DE CAPACITACION</title>
 </head>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 <body>
 	<header th:replace="/layouts/header::header"></header>
 	<h1>CONTACTANOS</h1>
-		<img alt="CONTACTO" src="../static/images/CONTACTO.jpg">
+		<img alt="CONTACTO" th:src= @{images/CONTACTO.jpg}>
 	
 	
 	<ul>

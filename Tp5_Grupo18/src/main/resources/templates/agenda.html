@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>	
 <meta charset="UTF-8">
-<title>PORTAL DE CAPACITACION</title>
+<title>AGENDA</title>
 </head>
 <body>
-	<header th:replace="/header::header"></header>
+    <header th:replace="/layouts/header::header"></header>
 	<h1> AGENDA </h1>
-	<header th:replace="/layouts/header::header"></header>
-	<img alt= "imagen de calendario" src= "../static/images/fotocalend.jpg" title="calendario"/>
+	
+	<img alt= "imagen de calendario" th:src= @{images/fotocalend.jpg} title="calendario"/>
 
 <section>
 <p> Esta seccion contiene informacion sobre la agenda de la pagina web. <br>
@@ -16,7 +18,7 @@ Una agenda es un libro o cuaderno donde se apuntan, para no olvidarlas, las cosa
 generalmente sus hojas llevan impresos los dÃ­as del aÃ±o ordenados por meses y por semanas con un espacio para escribir. <br>
 Esta agenda permite que los alumnos puedan ordenar sus horarios de los cursos que elige realizar.</p>
 </section>
-<video src="../static/videos/Portal.mp4"  height="400" controls></video>
+<video th:src= @{videos/Portal.mp4}  height="400" controls></video>
 <footer th:insert="/layouts/footer::footer"></footer>
 
 </body>

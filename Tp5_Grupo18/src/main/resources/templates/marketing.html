@@ -1,27 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>PORTAL DE CAPACITACION</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<meta charset="UTF-8">
+<title>marketing</title>
 </head>
 <body>
-<header>
+  <header th:replace="/layouts/header::header"></header>
 <h1> Curso: MARKETING </h1>
-<img alt="imagen de marketing"src="../static/images/marketing.jpg" height="400" title="marketing" />
-</header>
-
-<nav>
-  <ul>
-  <li><a href="index.html">Inicio</a></li>
-  <li><a href="agenda.html">Agenda</a></li>
-  <li><a href="beneficios.html">Beneficios y becas</a></li>
-  <li><a href="contacto.html">Contactanos</a></li>
-  </ul>
-</nav>
+<img alt="imagen de marketing" th:src= @{images/marketing.jpg} height="400" title="marketing"/>
 
 <section>
 <h2> Informacion sobre el curso</h2>
-<p> El marketing es un conjunto de técnicas y estudios que tienen como objetivo mejorar la comercialización de un producto.</p>
+<p> El marketing es un conjunto de tÃ©cnicas y estudios que tienen como objetivo mejorar la comercializaciÃ³n de un producto.</p>
 <table>
  <tr>
     <th> Titulo de Curso</th>
@@ -43,6 +35,6 @@
  </tr>
 </table>
 </section>
-
+ <footer th:replace="/layouts/footer::footer"></footer>
 </body>
 </html>
