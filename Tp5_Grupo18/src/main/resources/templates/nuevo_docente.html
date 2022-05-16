@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<meta charset="ISO-8859-1">
+<title>Nuevo Docente</title>
+</head>
+<body>
+
+ <form>
+  <h2>Alta de Docente</h2>
+  <div class="mb-1">
+  <label for="formGroupExampleInput" class="form-label">Legajo </label>
+  <input class="form-control" id="idlegajo"type="number" />   
+   </div>
+   <div class="mb-1">
+  <label for="formGroupExampleInput" class="form-label">Nombres </label>
+  <input class="form-control" id="idnombres"type="text" />   
+   </div>
+   <div class="mb-1">
+   <label for="formGroupExampleInput" class="form-label">Apellidos </label>
+  <input class="form-control" id="idapellidos"type="text" />   
+   </div>
+   <div class="mb-1">
+   <label for="formGroupExampleInput" class="form-label">E-mail</label>
+  <input class="form-control" id="idemail"type="email" />   
+   </div>
+   <div class="mb-1">
+   <label for="formGroupExampleInput" class="form-label">Telefono </label>
+  <input class="form-control" id="idtelefono"type="number" />   
+   </div>
+   <button type="submit" class="btn btn-primary">Enviar</button>
+   <button class="btn btn-primary">Cancelar</button>
+ </form> 
+
+</body>
+</html>
