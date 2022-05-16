@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/pdc")
 public class IndexController {
-    @RequestMapping("/inicio")
+    @GetMapping("/inicio")
     public String getIndexPage(Model model){
     	return "index";
     }

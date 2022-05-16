@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/pdc")
-public class AgendaController {
-	@GetMapping("/agenda")
+public class BeneficiosController {
+	@GetMapping("/beneficios_becas")
 	public String getAgendaPage(Model model){
-		return "agenda";
+		return "beneficios";
 	}
 	
 }

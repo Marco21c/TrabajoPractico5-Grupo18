@@ -9,15 +9,8 @@
 <body>
 	<header th:replace="/layouts/header::header"></header>
 	<h1>CONTACTANOS</h1>
-		<img alt="CONTACTO" th:src= @{images/CONTACTO.jpg}>
-	
-	
-	<ul>
-		<li><a href="index.html">INICIO</a></li>
-		<li><a href="agenda.html">AGENDA</a></li>
-		<li><a href="beneficios.html">BENEFICIO Y BECAS</a></li>
-		<li><a href="contacto.html">CONTACTANOS</a></li>
-	</ul>
+		<img alt="CONTACTO" th:src= @{/images/CONTACTO.jpg}>
+		
 	<form action="">
 		<label>Nombre y Apellido: </label>
 		<input id="idapellido" type="text">

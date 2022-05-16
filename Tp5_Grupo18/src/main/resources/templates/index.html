@@ -7,7 +7,7 @@
 		<title>INICIO</title>
   </head>
   <body>
-	<header th:replace="/layouts/header::header">asasa</header> 
+	<header th:replace="/layouts/header::header"></header> 
     <h1> PORTAL DE CAPACITACION</h1>		
  
    <div class="container px-0">
@@ -17,18 +17,18 @@
         <section> 
          <h2> Cursos con inscripciones abiertas</h2>	    
            <ol >
-             <li><a href="idiomas.html">IDIOMAS.</a></li>
-             <li><a href="diseño.html">DISEÑO.</a></li>
-             <li><a href="desarrollo.html">DESARROLLO.</a></li>
+             <li><a href="#">IDIOMAS.</a></li>
+             <li><a href="#">DISEÑO.</a></li>
+             <li><a href="#">DESARROLLO.</a></li>
              <li><a href="marketing.html">MARKETING.</a></li>
-             <li><a href="conferencias.html">CONFERENCIAS.</a></li>
+             <li><a href="#">CONFERENCIAS.</a></li>
            </ol>	
         </section>
       </div> 
       </div>
       <div class="col">
       <div>
-          <img height= "400 px" th:src= @{images/images.png} alt="imagen de inicio" title="Titulo">
+          <img height= "400 px" th:src= @{/images/images.png} alt="imagen de inicio" title="Titulo">
       </div>
       </div>
      </div>
