@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
     @GetMapping("/inicio")
     public String getIndexPage(Model model){
-    	return "nuevo_docente";
+    	return "index";
     }
     
 
