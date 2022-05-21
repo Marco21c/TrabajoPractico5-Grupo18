@@ -11,35 +11,35 @@
 <div class="row justify-content-center mt-5 pt-5">
 <div class="col-md-5 ">
  <h2>Alta de Docente</h2>
- <form>
+ <form th:action="@{/saveDocente}" th:object="${docente}" th:method="post"> 
   <div class="row mb-3">
     <label for="inputLegajo3" class="col-sm-2 col-form-label">Legajo</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="inputLegajo3">
+      <input type="number" th:field="*{legajo}" class="form-control" id="inputLegajo3">
     </div>
   </div>
  <div class="row mb-3">
     <label for="inputNombres3" class="col-sm-2 col-form-label">Nombres</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputNombres3">
+      <input type="text" th:field="*{nombre}" class="form-control" id="inputNombres3">
     </div>
   </div>
   <div class="row mb-3">
     <label for="inputApellidos3" class="col-sm-2 col-form-label">Apellidos</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="inputApellidos3">
+      <input type="text"  th:field="*{apellido}" class="form-control" id="inputApellidos3">
     </div>
   </div>  
  <div class="row mb-3">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3">
+      <input type="email"  th:field="*{email}" class="form-control" id="inputEmail3">
     </div>
   </div>
   <div class="row mb-3">
     <label for="inputTelefono3" class="col-sm-2 col-form-label">Telefono</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="inputTelefono3">
+      <input type="number" th:field="*{telefono}" class="form-control" id="inputTelefono3">
     </div>
   </div>
    <button type="submit" class="btn btn-primary">Enviar</button>

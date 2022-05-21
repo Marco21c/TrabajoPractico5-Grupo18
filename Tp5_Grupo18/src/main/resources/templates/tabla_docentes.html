@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<meta charset="ISO-8859-1">
+<title>Tabla</title>
+</head>
+<body>
+<h2> Tabla de Docentes</h2>
+
+<a th:href="@{/Docente}" class="btn btn-primary" role="button" data-bs-toggle="button">Nuevo</a>
+<table class="table table-dark table-striped">
+ <tr>
+ <th> Legajo</th>
+ <th> Nombres</th>
+ <th> Apellidos</th>
+ <th> E-mail</th>
+ <th> Telefono</th>
+ </tr>
+ <tr th:each="d:${docente}">
+ <td th:text="${d.legajo}"></td>
+ <td th:text="${d.nombre}"></td>
+ <td th:text="${d.apellido}"></td>
+ <td th:text="${d.email}"></td>
+ <td th:text="${d.telefono}"></td>
+ </tr>
+</table>
+
+</body>
+</html>

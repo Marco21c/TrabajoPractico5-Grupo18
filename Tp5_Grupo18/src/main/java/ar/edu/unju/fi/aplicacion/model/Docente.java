@@ -1,27 +1,32 @@
-package ar.edu.unju.fi.model;
+package ar.edu.unju.fi.aplicacion.model;
 
-public class Alumno {
-	private double dni;
+import org.springframework.stereotype.Component;
+
+
+public class Docente {
+	private int legajo;
 	private String nombre;
 	private String apellido;
 	private String email;
-	private double telefono;
+	private int telefono;
 	
+	public Docente() {
+		
+	}
 	
-	
-	public Alumno(double dni, String nombre, String apellido, String email, double telefono) {
+	public Docente(int legajo, String nombre, String apellido, String email, int telefono) {
 		super();
-		this.dni = dni;
+		this.legajo = legajo;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
 		this.telefono = telefono;
 	}
-	public double getDni() {
-		return dni;
+	public int getLegajo() {
+		return legajo;
 	}
-	public void setDni(double dni) {
-		this.dni = dni;
+	public void setLegajo(int legajo) {
+		this.legajo = legajo;
 	}
 	public String getNombre() {
 		return nombre;
@@ -41,10 +46,10 @@ public class Alumno {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public double getTelefono() {
+	public int getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(double telefono) {
+	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
 	
