@@ -1,15 +1,16 @@
 package ar.edu.unju.fi.aplicacion.model;
 
 public class Alumno {
-	private double dni;
+	private long dni;
 	private String nombre;
 	private String apellido;
 	private String email;
-	private double telefono;
+	private long telefono;
 	
+	public Alumno() {
+	}
 	
-	
-	public Alumno(double dni, String nombre, String apellido, String email, double telefono) {
+	public Alumno(long dni, String nombre, String apellido, String email, long telefono) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -17,10 +18,10 @@ public class Alumno {
 		this.email = email;
 		this.telefono = telefono;
 	}
-	public double getDni() {
+	public long getDni() {
 		return dni;
 	}
-	public void setDni(double dni) {
+	public void setDni(long dni) {
 		this.dni = dni;
 	}
 	public String getNombre() {
@@ -41,10 +42,10 @@ public class Alumno {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public double getTelefono() {
+	public long getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(double telefono) {
+	public void setTelefono(long telefono) {
 		this.telefono = telefono;
 	}
 	

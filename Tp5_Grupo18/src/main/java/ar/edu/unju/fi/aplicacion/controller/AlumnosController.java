@@ -10,24 +10,26 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import ar.edu.unju.fi.aplicacion.model.Alumno;
 
-import ar.edu.unju.fi.aplicacion.model.Docente;
 @Controller
-public class DocenteController {
-	List<Docente> listdocentes = new ArrayList<>(); 
+public class AlumnosController {
+List<Alumno> listaAlumnos = new ArrayList<>();    
 	
-	@GetMapping("/Docente")
+	
+	@GetMapping("/Alumno")
 	public String GetDocentePage(Model model){	
-	Docente docente = new Docente();	
-	model.addAttribute("docente",docente);
-    return "nuevo_docente";
+	Alumno alumno = new Alumno();	
+	model.addAttribute("alumno",alumno);
+    return "nuevo_alumno";
     }
 	
-	@PostMapping("/saveDocente")
-	public ModelAndView BottonAgregar(@ModelAttribute("docente") Docente doc ){
-		ModelAndView modelAndView = new ModelAndView("tabla_docentes");
-		listdocentes.add(doc);
-		modelAndView.addObject("docente",listdocentes);
+	@PostMapping("/saveAlumno")
+	public ModelAndView saveAlumno(@ModelAttribute("alumno") Alumno alu){
+		ModelAndView modelAndView = new ModelAndView("tabla_alumnos");
+		listaAlumnos.add(alu);
+		
+		modelAndView.addObject("alumno",listaAlumnos);
 		return modelAndView ;
 	}
 	

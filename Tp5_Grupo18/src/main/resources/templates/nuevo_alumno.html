@@ -4,18 +4,18 @@
 <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 <meta charset="ISO-8859-1">
-<title>Nuevo Docente</title>
+<title>Nuevo Alumno</title>
 </head>
 <body>
 <div class="container">
 <div class="row justify-content-center mt-5 pt-5">
 <div class="col-md-5 ">
- <h2>Alta de Docente</h2>
- <form th:action="@{/saveDocente}" th:object="${docente}" th:method="post"> 
+ <h2>Alta de Alumno</h2>
+ <form th:action="@{/saveAlumno}" th:object="${alumno}" th:method="post"> 
   <div class="row mb-3">
-    <label for="inputLegajo3" class="col-sm-2 col-form-label">Legajo</label>
+    <label for="inputDni3" class="col-sm-2 col-form-label">Dni</label>
     <div class="col-sm-10">
-      <input type="number" th:field="*{legajo}" class="form-control" id="inputLegajo3">
+      <input type="number" th:field="*{dni}" class="form-control" id="inputDni3">
     </div>
   </div>
  <div class="row mb-3">
