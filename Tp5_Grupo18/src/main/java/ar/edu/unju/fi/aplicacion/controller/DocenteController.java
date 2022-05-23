@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,11 +25,17 @@ public class DocenteController {
     }
 	
 	@PostMapping("/saveDocente")
-	public ModelAndView BottonAgregar(@ModelAttribute("docente") Docente doc ){
+	public ModelAndView BottonAgregar(@Validated @ModelAttribute("docente") Docente doc, BindingResult bindingResult ){
+		if(bindingResult.hasErrors()) {
 		ModelAndView modelAndView = new ModelAndView("tabla_docentes");
 		listdocentes.add(doc);
 		modelAndView.addObject("docente",listdocentes);
 		return modelAndView ;
+		}
+		
+		ModelAndView modelAndView = new ModelAndView("tabla_docentes");
+		ListDocente listdocentes = new ListDocente();
+		
 	}
 	
 }

@@ -1,13 +1,22 @@
 package ar.edu.unju.fi.aplicacion.model;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.PositiveOrZero;
+
 import org.springframework.stereotype.Component;
 
 
 public class Docente {
+	@PositiveOrZero
 	private int legajo;
+	@NotEmpty(message="el nombre del docente no puede estar vacio")
 	private String nombre;
+	@NotEmpty(message="el apellido del docente no puede estar vacio")
 	private String apellido;
+	@NotEmpty @Email
 	private String email;
+	@NotEmpty(message="El telefono no puede ser vacio")
 	private int telefono;
 	
 	public Docente() {
