@@ -1,19 +1,26 @@
 package ar.edu.unju.fi.aplicacion.model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Curso {
 	private int codigo;
 	private String titulo;
 	private String categoria;
+	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private LocalDate fechai;
-	private int hora;
+	@DateTimeFormat(pattern= "hh:mm:ss")
+	private LocalTime hora;
 	private String modalidad;
 	
 	
+	public Curso() {
+		
+	}
 	
-	
-	public Curso(int codigo, String titulo, String categoria, LocalDate fechai, int hora, String modalidad) {
+	public Curso(int codigo, String titulo, String categoria, LocalDate fechai, LocalTime hora, String modalidad) {
 		super();
 		this.codigo = codigo;
 		this.titulo = titulo;
@@ -48,10 +55,10 @@ public class Curso {
 	public void setFechai(LocalDate fechai) {
 		this.fechai = fechai;
 	}
-	public int getHora() {
+	public LocalTime getHora() {
 		return hora;
 	}
-	public void setHora(int hora) {
+	public void setHora(LocalTime hora) {
 		this.hora = hora;
 	}
 	public String getModalidad() {
