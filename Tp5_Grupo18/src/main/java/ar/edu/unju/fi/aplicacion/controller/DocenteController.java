@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.aplicacion.model.Docente;
+import ar.edu.unju.fi.aplicacion.util.ListaDocente;
 @Controller
 public class DocenteController {
-	List<Docente> listdocentes = new ArrayList<>(); 
+	//List<Docente> listdocentes = new ArrayList<>(); 
 	
 	@GetMapping("/Docente")
 	public String GetDocentePage(Model model){	
@@ -25,17 +26,21 @@ public class DocenteController {
     }
 	
 	@PostMapping("/saveDocente")
-	public ModelAndView BottonAgregar(@Validated @ModelAttribute("docente") Docente doc, BindingResult bindingResult ){
+	public ModelAndView BottonAgregar(@Validated @ModelAttribute("docente") Docente docente, BindingResult bindingResult ){
 		if(bindingResult.hasErrors()) {
-		ModelAndView modelAndView = new ModelAndView("tabla_docentes");
-		listdocentes.add(doc);
-		modelAndView.addObject("docente",listdocentes);
+		ModelAndView modelAndView = new ModelAndView("nuevo_docente");
+		modelAndView.addObject("docente",docente);
 		return modelAndView ;
 		}
 		
 		ModelAndView modelAndView = new ModelAndView("tabla_docentes");
-		ListDocente listdocentes = new ListDocente();
+		ListaDocente listDocentes = new ListaDocente();
+		if (listDocentes.getDocentes().add(docente)) {
+			//LOOGER.inf("Se agrego un docente al arraylist de docente");
+		}
 		
+		modelAndView.addObject("tabla_docentes", listDocentes.getDocentes());
+		return modelAndView;
 	}
 	
 }
