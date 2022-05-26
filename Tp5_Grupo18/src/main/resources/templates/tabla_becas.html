@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<meta charset="ISO-8859-1">
+<title>Tabla Becas</title>
+</head>
+<body>
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-10 ">
+<h2> Tabla de Becas</h2>
+<a th:href="@{/Alumno}" class="btn btn-primary" role="button" data-bs-toggle="button">Nuevo</a>
+<table class="table table-dark table-striped">
+ <tr>
+ <th> Codigo</th>
+ <th> Curso</th>
+ <th> fecha de inicio</th>
+ <th> fecha de cierre</th>
+ <th> estado</th>
+ <th> Opciones </th>
+ </tr>
+ <tr th:each="b:${becas}">
+ <td th:text="${b.codigo}"></td>
+ <td th:text="${b.curso}"></td>
+ <td th:text="${b.fecha_inicio}"></td>
+ <td th:text="${b.fecha_cierre}"></td>
+ <td th:text="${b.estado}"></td>
+ <td>
+ <button type="button" class="btn btn-warning">Editar</button>
+ <button type="button" class="btn btn-danger">Eliminar</button>
+ </td>
+ </tr>
+</table>
+</div>
+</div>
+</div> 
+</body>
+</html>

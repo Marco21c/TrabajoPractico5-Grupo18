@@ -9,6 +9,10 @@ public class Beca {
 	private LocalDate fecha_cierre;
 	private String estado;
 	
+	public Beca() {
+		
+	}
+	
 	public Beca(int codigo, Curso curso, LocalDate fecha_inicio, LocalDate fecha_cierre, String estado) {
 		super();
 		this.codigo = codigo;
