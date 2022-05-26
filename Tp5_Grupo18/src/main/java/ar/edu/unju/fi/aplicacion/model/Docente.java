@@ -16,7 +16,7 @@ public class Docente {
 	private String apellido;
 	@NotEmpty @Email
 	private String email;
-	@NotEmpty(message="El telefono no puede ser vacio")
+	
 	private int telefono;
 	
 	public Docente() {
