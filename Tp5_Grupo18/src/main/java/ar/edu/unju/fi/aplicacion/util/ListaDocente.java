@@ -9,7 +9,7 @@ public class ListaDocente {
 
 	public ListaDocente(){
 		docentes = new ArrayList<Docente>();
-		docentes.add(new Docente(01,"Velazquez","Diego","ariel_123ok@hotmail.com",123));
+		docentes.add(new Docente(01,"Velazquez","Diego","ariel_123ok@hotmail.com",12312345));
 	}
 	
 	public ArrayList<Docente> getDocentes() {

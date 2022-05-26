@@ -12,7 +12,8 @@ import ar.edu.unju.fi.aplicacion.model.Curso;
 
 @Controller
 public class CursosController {
-List<Curso> listaCursos = new ArrayList<>();    
+List<Curso> listaCursos = new ArrayList<>();
+
 	
 	@GetMapping("/Cursos")
 	public String GetDocentePage(Model model){	

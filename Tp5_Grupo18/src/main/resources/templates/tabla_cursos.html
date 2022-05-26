@@ -27,7 +27,7 @@
  <td th:text="${c.titulo}"></td>
  <td th:text="${c.categoria}"></td>
  <td th:text="${#temporals.format(c.fechai,'dd/MM/yyyy')}"></td>
- <td th:ext="${#temporals.format(c.hora,'hh:mm')}"></td>
+ <td th:ext="${c.hora}"></td>
  <td th:text="${c.modalidad}"></td>
   <td>
  <button type="button" class="btn btn-warning">Editar</button>

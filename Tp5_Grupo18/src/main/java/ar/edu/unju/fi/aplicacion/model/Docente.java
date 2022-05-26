@@ -16,14 +16,14 @@ public class Docente {
 	private String apellido;
 	@NotEmpty @Email
 	private String email;
-	
-	private int telefono;
+	@PositiveOrZero
+	private long telefono;
 	
 	public Docente() {
 		
 	}
 	
-	public Docente(int legajo, String nombre, String apellido, String email, int telefono) {
+	public Docente(int legajo, String nombre, String apellido, String email, long telefono) {
 		super();
 		this.legajo = legajo;
 		this.nombre = nombre;
@@ -55,10 +55,10 @@ public class Docente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getTelefono() {
+	public long getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(int telefono) {
+	public void setTelefono(long telefono) {
 		this.telefono = telefono;
 	}
 	

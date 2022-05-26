@@ -12,7 +12,7 @@ public class Curso {
 	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private LocalDate fechai;
 	@DateTimeFormat(pattern= "hh:mm:ss")
-	private LocalTime hora;
+	private int hora;
 	private String modalidad;
 	
 	
@@ -20,7 +20,7 @@ public class Curso {
 		
 	}
 	
-	public Curso(int codigo, String titulo, String categoria, LocalDate fechai, LocalTime hora, String modalidad) {
+	public Curso(int codigo, String titulo, String categoria, LocalDate fechai, int hora, String modalidad) {
 		super();
 		this.codigo = codigo;
 		this.titulo = titulo;
@@ -55,10 +55,10 @@ public class Curso {
 	public void setFechai(LocalDate fechai) {
 		this.fechai = fechai;
 	}
-	public LocalTime getHora() {
+	public int getHora() {
 		return hora;
 	}
-	public void setHora(LocalTime hora) {
+	public void setHora(int hora) {
 		this.hora = hora;
 	}
 	public String getModalidad() {
