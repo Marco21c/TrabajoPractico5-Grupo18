@@ -11,14 +11,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.aplicacion.model.Alumno;
+import ar.edu.unju.fi.aplicacion.util.ListaAlumnos;
 
 @Controller
 public class AlumnosController {
-List<Alumno> listaAlumnos = new ArrayList<>();    
-	
+
+ListaAlumnos lista = new ListaAlumnos();	
 	
 	@GetMapping("/Alumno")
-	public String GetDocentePage(Model model){	
+	public String GetAlumnosPage(Model model){	
 	Alumno alumno = new Alumno();	
 	model.addAttribute("alumno",alumno);
     return "nuevo_alumno";
@@ -27,9 +28,8 @@ List<Alumno> listaAlumnos = new ArrayList<>();
 	@PostMapping("/saveAlumno")
 	public ModelAndView saveAlumno(@ModelAttribute("alumno") Alumno alu){
 		ModelAndView modelAndView = new ModelAndView("tabla_alumnos");
-		listaAlumnos.add(alu);
-		
-		modelAndView.addObject("alumno",listaAlumnos);
+		lista.getAlumnos().add(alu);	
+		modelAndView.addObject("alumno",lista.getAlumnos());
 		return modelAndView ;
 	}
 	
