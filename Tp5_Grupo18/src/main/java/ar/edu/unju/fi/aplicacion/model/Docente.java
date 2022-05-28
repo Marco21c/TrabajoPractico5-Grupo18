@@ -1,14 +1,17 @@
 package ar.edu.unju.fi.aplicacion.model;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 
 import org.springframework.stereotype.Component;
 
 
 public class Docente {
-	@PositiveOrZero
+	@Min(value=1, message="el legajo debe ser mayor a 0") @NotEmpty
 	private int legajo;
 	@NotEmpty(message="el nombre del docente no puede estar vacio")
 	private String nombre;
