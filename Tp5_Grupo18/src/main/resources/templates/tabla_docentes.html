@@ -28,8 +28,8 @@
 						 <td th:text="${d.email}"></td>
 						 <td th:text="${d.telefono}"></td>
 						  <td>
-							 <button th:href="@{/docente/editar/}+${d.legajo}" id="editarDocente" type="button" class="btn btn-warning">Editar</button>
-							 <button th:href="@{/docente/eliminar/}+${d.legajo}" id="eliminarDocente" type="button" class="btn btn-danger">Eliminar</button>
+							 <a th:href="@{/docente/editar/}+${d.legajo}" id="editarDocente" type="button" class="btn btn-warning">Editar</a>
+							 <a th:href="@{/docente/eliminar/}+${d.legajo}" id="eliminarDocente" type="button" class="btn btn-danger">Eliminar</a>
 						 </td>
 					 </tr>
 				</table>
