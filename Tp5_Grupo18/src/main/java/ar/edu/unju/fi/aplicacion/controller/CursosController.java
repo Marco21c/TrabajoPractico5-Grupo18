@@ -16,7 +16,7 @@ import ar.edu.unju.fi.aplicacion.util.ListaCursos;
 
 @Controller
 public class CursosController {
-private static final Log LOGGER = LogFactory.getLog(DocenteController.class);
+private static final Log LOGGER = LogFactory.getLog(CursosController.class);
 ListaCursos listaCursos = new ListaCursos();
 	
 	@GetMapping("/Cursos")

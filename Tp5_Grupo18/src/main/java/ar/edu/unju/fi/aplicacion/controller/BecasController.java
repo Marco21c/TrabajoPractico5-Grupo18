@@ -22,7 +22,7 @@ import java.util.Optional;
 public class BecasController {
 ListaBecas listaBecas = new ListaBecas();    
 	
-private static final Log LOGGER = LogFactory.getLog(DocenteController.class);
+private static final Log LOGGER = LogFactory.getLog(BecasController.class);
 
 	@GetMapping("/Beca")
 	public String GetBecaPage(Model model){	
