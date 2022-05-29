@@ -1,6 +1,8 @@
 package ar.edu.unju.fi.aplicacion.controller;
 
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +22,8 @@ import java.util.Optional;
 public class BecasController {
 ListaBecas listaBecas = new ListaBecas();    
 	
-	
+private static final Log LOGGER = LogFactory.getLog(DocenteController.class);
+
 	@GetMapping("/Beca")
 	public String GetBecaPage(Model model){	
 	model.addAttribute("beca",new Beca());
@@ -32,7 +35,7 @@ ListaBecas listaBecas = new ListaBecas();
 	@PostMapping("/saveBeca")
 	public ModelAndView saveAlumno(@Validated @ModelAttribute("beca") Beca bec, BindingResult bindingResult){
 		if(bindingResult.hasErrors()) {
-			//LOGGER.error("No se cumplen las reglas de validación");
+			LOGGER.error("No se cumplen las reglas de validación");
 			ModelAndView modelAndview = new ModelAndView("nueva_beca");
 			modelAndview.addObject("beca", bec);
 			ListaCursos listacurso = new ListaCursos();
@@ -44,7 +47,7 @@ ListaBecas listaBecas = new ListaBecas();
 		Optional<Curso> curso = listacurso.getCursos().stream().filter(c -> c.getCodigo() == bec.getCurso().getCodigo()).findFirst();
 		bec.setCurso(curso.get());
 		if(listaBecas.getBecas().add(bec)) {
-			//LOGGER.info("Se guardó un objeto beca en la lista de becas");
+			LOGGER.info("Se guardó un objeto beca en la lista de becas");
 		}
 		modelAndView.addObject("becas",listaBecas.getBecas());
 		return modelAndView ;
