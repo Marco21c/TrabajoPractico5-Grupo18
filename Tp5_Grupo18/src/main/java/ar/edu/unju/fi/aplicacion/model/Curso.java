@@ -20,7 +20,7 @@ public class Curso {
 	@FutureOrPresent(message="Debe ser una fecha actual o futura.")
 	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private LocalDate fechai;
-	@Min(value=1, message="La hora debe ser mayor a 0.") @Max(value=24, message="La hora debe ser menor a 24.")
+	@Min(value=1, message="La hora debe ser mayor a 0.") 
 	private int hora;
 	@NotEmpty(message="La modalidad no tiene que estar vacia.")
 	private String modalidad;
