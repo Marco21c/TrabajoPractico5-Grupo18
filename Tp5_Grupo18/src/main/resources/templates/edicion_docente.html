@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+	<title>EDICION DOCENTE</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<header th:replace="/Layouts/header :: header"></header>
+	<div class="container col-4">
+		<br>
+		<p class="h4">Edicion Docente</p>
+		<br>
+		
+		<form action="@{/docente/modificar}" method="POST" th:object="${docente}">
+			<div class="mb-3">
+			<input type="hidden" th:field="*{legajo}"/>
+				<label for=legajoId>LEGAJO</label>
+				<input th:value="${legajo}" type="number" class="form-control" id="legajoId" disabled="disabled">
+			</div>
+			<div class="mb-3">
+				<label for="nombresId" class="form-label">NOMBRES</label>
+				<input th:field="*{nombre}" type="text" class=form-control id="nombresId">
+				<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+			</div>
+			<div class="mb-3">
+				<label for="apellidoId" class="form-label">APELLIDOS</label>
+				<input th:field="*{apellido}" type="text" class=form-control id="apellidoId">
+				<div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+			</div>
+			<div class="mb-3">
+				<label for="emailId" class="form-label">EMAIL</label>
+				<input th:field="*{email}" type="email" class=form-control id="emailId">
+				<div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+			</div>
+			<div class="mb-3">
+				<label for="telefonosId" class="form-label">TELEFONO</label>
+				<input th:field="*{telefono}" type="text" class=form-control id="telefonoIds">
+				<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+			</div>
+			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+				<button class="btn btn-primary me-md-2" type="submit">EDITAR</button>
+				<a th:href="@{/inicio}" id="cancel" class="btn btn-secondary">CANCELAR</a>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
