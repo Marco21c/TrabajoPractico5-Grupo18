@@ -32,12 +32,12 @@ public class DocenteController {
 	
 	private static final Log LOGGER = LogFactory.getLog(DocenteController.class);
 	
-	ListaDocente listaDocente = new ListaDocente();
+	//ListaDocente listaDocente = new ListaDocente();
 	
 	@GetMapping("/nuevo")
 	public String GetDocentePage(Model model){	
-	Docente docente = new Docente();
-	model.addAttribute("docente", docente);
+	//Docente docente = new Docente();
+	model.addAttribute("docente", docenteService.getDocente());
     return "nuevo_docente";
     }
 	
@@ -49,18 +49,18 @@ public class DocenteController {
 			return mav;
 		}
 		ModelAndView mav = new ModelAndView("redirect:/docente/listaDocentes");
-		if(listaDocente.getDocentes().add(doc)) {
+		if(docenteService.guardarDocente(doc)) {
 			LOGGER.info("Se agrego docente a la lista de docentes");
 		}
 		
-		mav.addObject("docentes", listaDocente.getDocentes());
+		//mav.addObject("docentes", docenteService.getListaDocente().getDocentes()); 
 		return mav;
 	}
 	
 	@GetMapping("/listaDocentes")
 	public ModelAndView getListaDocentesPage() {
 		ModelAndView mav = new ModelAndView("tabla_docentes");
-		mav.addObject("docentes", listaDocente.getDocentes());
+		mav.addObject("docentes", docenteService.getListaDocente().getDocentes());
 		return mav;
 	}
 	

@@ -13,7 +13,7 @@
 		<p class="h4">Edicion Docente</p>
 		<br>
 		
-		<form action="@{/docente/modificar}" method="POST" th:object="${docente}">
+		<form th:action="@{/docente/modificar}" method="POST" th:object="${docente}">
 			<div class="mb-3">
 			<input type="hidden" th:field="*{legajo}"/>
 				<label for=legajoId>LEGAJO</label>
@@ -36,7 +36,7 @@
 			</div>
 			<div class="mb-3">
 				<label for="telefonosId" class="form-label">TELEFONO</label>
-				<input th:field="*{telefono}" type="text" class=form-control id="telefonoIds">
+				<input th:field="*{telefono}" type="number" class=form-control id="telefonoIds">
 				<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 			</div>
 			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
