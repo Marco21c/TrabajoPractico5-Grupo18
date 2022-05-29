@@ -25,13 +25,13 @@
 				<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 			</div>
 			<div class="mb-3">
-				<label for="nombresId" class="form-label">APELLIDOS</label>
+				<label for="apellidoId" class="form-label">APELLIDOS</label>
 				<input th:field="*{apellido}" type="text" class=form-control id="apellidoId">
 				<div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
 			</div>
 			<div class="mb-3">
-				<label for="nombresId" class="form-label">EMAIL</label>
-				<input th:field="*{nombre}" type="email" class=form-control id="emailId">
+				<label for="emailId" class="form-label">EMAIL</label>
+				<input th:field="*{email}" type="email" class=form-control id="emailId">
 				<div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
 			</div>
 			<div class="mb-3">
