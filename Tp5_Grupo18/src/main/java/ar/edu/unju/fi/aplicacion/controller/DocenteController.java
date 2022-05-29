@@ -80,7 +80,7 @@ public class DocenteController {
 		mav.addObject("docente", docente);
 		return mav;
 	}
-	ModelAndView mav = new ModelAndView("redirect:/docente/listaAlumnos");
+	ModelAndView mav = new ModelAndView("redirect:/docente/listaDocentes");
 	docenteService.modificarDocente(docente);
 	return mav;
 	}
