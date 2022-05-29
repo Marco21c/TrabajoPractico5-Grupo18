@@ -43,7 +43,9 @@ public class DocenteServiceImp implements IDocenteService {
 
 	@Override
 	public void eliminarDocente(int legajo) {
-		// TODO Auto-generated method stub
+		// TODO busca al docente, devuelve el objeto asociado, y se procede a eliminar de la lista docente
+		Optional<Docente> docente = listaDocente.getDocentes().stream().filter(d -> d.getLegajo() == legajo).findFirst();
+		listaDocente.getDocentes().remove(docente.get());
 
 	}
 

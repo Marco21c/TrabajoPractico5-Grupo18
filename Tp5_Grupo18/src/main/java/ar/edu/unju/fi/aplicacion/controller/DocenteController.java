@@ -88,6 +88,7 @@ public class DocenteController {
 	@GetMapping("/eliminar/{legajo}")
 	public ModelAndView eliminarDocente(@PathVariable("legajo")int legajo) {
 		ModelAndView mav = new ModelAndView("redirect:/docente/listaDocentes");
+		docenteService.eliminarDocente(legajo);
 				return mav;
 	}
 }
