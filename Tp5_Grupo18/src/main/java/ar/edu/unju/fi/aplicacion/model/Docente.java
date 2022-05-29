@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 
 public class Docente {
-	@Min(value=1, message="el legajo debe ser mayor a 0") @NotEmpty
+	@Min(value=1, message="el legajo debe ser mayor a 0")
 	private int legajo;
 	@NotEmpty(message="el nombre del docente no puede estar vacio")
 	private String nombre;
