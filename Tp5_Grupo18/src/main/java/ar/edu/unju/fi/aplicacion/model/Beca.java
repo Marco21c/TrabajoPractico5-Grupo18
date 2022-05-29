@@ -2,11 +2,26 @@ package ar.edu.unju.fi.aplicacion.model;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Beca {
+	@Positive(message="Debe ser un valor mayor a 0")
 	private int codigo;
+	@NotNull(message= "Debe elegir un curso.")
 	private Curso curso;
+	@FutureOrPresent(message="Debe ser una fecha actual o futura.")
+	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private LocalDate fecha_inicio;
+	@Future(message="Debe ser una fecha futura.")
+	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private LocalDate fecha_cierre;
+	@NotEmpty(message="Debe agregar un estado.")
 	private String estado;
 	
 	public Beca() {

@@ -9,9 +9,9 @@ import javax.validation.constraints.PositiveOrZero;
 
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class Docente {
-	@Min(value=1, message="el legajo debe ser mayor a 0") 
+	@Min(value=1, message="el legajo debe ser mayor a 0")
 	private int legajo;
 	@NotEmpty(message="el nombre del docente no puede estar vacio")
 	private String nombre;

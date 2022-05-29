@@ -11,42 +11,48 @@
 <div class="row justify-content-center mt-5 pt-5">
 <div class="col-md-5 ">
  <h2>Alta de Curso</h2>
- <form th:action="@{saveCurso}" th:object="${curso}" th:method="post"> 
+ <form th:action="@{saveCurso}" th:object="${curso}" method="POST"> 
   <div class="row mb-3">
     <label for="inputCodigo3" class="col-sm-2 col-form-label">Codigo</label>
     <div class="col-sm-10">
-      <input type="number" th:field="*{codigo}" class="form-control" id="inputCodigo3">
+      <input type="number" th:field="*{codigo}" class="form-control" id="inputCodigo3" placerholder="Ingrese Codigo">
+      <div class="text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
     </div>
   </div>
  <div class="row mb-3">
     <label for="inputTitulo3" class="col-sm-2 col-form-label">Titulo</label>
     <div class="col-sm-10">
-      <input type="text" th:field="*{titulo}" class="form-control" id="inputTitulo3">
+      <input type="text" th:field="*{titulo}" class="form-control" id="inputTitulo3" placerholder="Ingrese titulo">
+      <div class="text-danger" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></div>
     </div>
   </div>
   <div class="row mb-3">
     <label for="inputCategoria3" class="col-sm-2 col-form-label">Categoria</label>
     <div class="col-sm-10">
-      <input type="text"  th:field="*{categoria}" class="form-control" id="inputCategoria3">
+      <input type="text"  th:field="*{categoria}" class="form-control" id="inputCategoria3" placerholder="Ingrese Categoria">
+       <div class="text-danger" th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></div>
     </div>
   </div>  
  <div class="row mb-3">
     <label for="inputfecha3" class="col-sm-2 col-form-label">Fecha</label>
     <div class="col-sm-10">
-      <input type="date"  th:field="*{fechai}" class="form-control" id="inputFecha3" th:value ="*{fechai}">
+      <input type="date"  th:field="*{fechai}" class="form-control" id="inputFecha3" th:value ="*{fechai}" placerholder="Ingrese Fecha de Inicio">
+       <div class="text-danger" th:if="${#fields.hasErrors('fechai')}" th:errors="*{fechai}"></div>
     </div>
   </div>
   <div class="row mb-3">
-    <label for="inputHora3" class="col-sm-2 col-form-label">Hora</label>
+    <label for="inputHora3" class="col-sm-2 col-form-label">Horas</label>
     <div class="col-sm-10">
-      <input type="number" th:field="*{hora}" class="form-control" id="inputHora3" >
+      <input type="number" th:field="*{hora}" class="form-control" id="inputHora3" placerholder="Ingrese Horas">
+       <div class="text-danger" th:if="${#fields.hasErrors('hora')}" th:errors="*{hora}"></div>
     </div>
   </div>
  
   <div class="row mb-3">
     <label for="inputModalidad3" class="col-sm-2 col-form-label">Modalidad</label>
     <div class="col-sm-10">
-      <input type="text"  th:field="*{modalidad}" class="form-control" id="inputModalidad3">
+      <input type="text"  th:field="*{modalidad}" class="form-control" id="inputModalidad3" placerholder="Ingrese modalidad">
+       <div class="text-danger" th:if="${#fields.hasErrors('modalidad')}" th:errors="*{modalidad}"></div>
     </div>
   </div> 
    <button type="submit" class="btn btn-primary">Enviar</button>
