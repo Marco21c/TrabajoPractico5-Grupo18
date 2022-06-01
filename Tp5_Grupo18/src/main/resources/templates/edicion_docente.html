@@ -12,12 +12,11 @@
 		<br>
 		<p class="h4">Edicion Docente</p>
 		<br>
-		
 		<form action="@{/docente/modificar}" method="POST" th:object="${docente}">
 			<div class="mb-3">
-			<input type="hidden" th:field="*{legajo}"/>
-				<label for=legajoId>LEGAJO</label>
-				<input th:value="${legajo}" type="number" class="form-control" id="legajoId" disabled="disabled">
+			<input type="hidden" th:field="*{codigo}"/>
+				<label for=codigoId>Codigo</label>
+				<input th:value="${codigo}" type="number" class="form-control" id="codigoId" disabled="disabled">
 			</div>
 			<div class="mb-3">
 				<label for="nombresId" class="form-label">NOMBRES</label>

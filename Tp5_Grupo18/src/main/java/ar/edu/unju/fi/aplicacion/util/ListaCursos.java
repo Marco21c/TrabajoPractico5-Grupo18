@@ -4,8 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.unju.fi.aplicacion.model.Curso;
+import org.springframework.stereotype.Component;
 
+import ar.edu.unju.fi.aplicacion.model.Curso;
+@Component
 public class ListaCursos {
   ArrayList<Curso> cursos;
 

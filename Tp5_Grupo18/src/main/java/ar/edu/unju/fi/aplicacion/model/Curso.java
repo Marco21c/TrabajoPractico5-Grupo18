@@ -6,6 +6,7 @@ import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -18,7 +19,7 @@ public class Curso {
 	@NotEmpty(message= "La Categoria no tiene que estar vacia.")
 	private String categoria;
 	@FutureOrPresent(message="Debe ser una fecha actual o futura.")
-	@DateTimeFormat(pattern= "yyyy-MM-dd")
+	@DateTimeFormat(pattern= "yyyy-MM-dd") @NotNull
 	private LocalDate fechai;
 	@Min(value=1, message="La hora debe ser mayor a 0.") 
 	private int hora;
