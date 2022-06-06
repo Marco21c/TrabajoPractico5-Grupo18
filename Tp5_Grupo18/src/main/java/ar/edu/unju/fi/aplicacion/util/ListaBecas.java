@@ -2,9 +2,12 @@ package ar.edu.unju.fi.aplicacion.util;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import org.springframework.stereotype.Component;
+
 import ar.edu.unju.fi.aplicacion.model.Beca;
 import ar.edu.unju.fi.aplicacion.model.Curso;
-
+@Component
 public class ListaBecas {
 	ArrayList<Beca> becas;
 	
