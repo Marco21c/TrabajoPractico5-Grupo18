@@ -12,7 +12,7 @@
 <div class="row justify-content-center">
 <div class="col-md-10 ">
 <h2> Tabla de Cursos</h2>
-<a th:href="@{/Cursos}" class="btn btn-primary" role="button" data-bs-toggle="button">Nuevo</a>
+<a th:href="@{/curso/nuevo}" class="btn btn-primary" role="button" data-bs-toggle="button">Nuevo</a>
 <table class="table table-dark table-striped">
  <tr>
  <th> Codigo</th>
@@ -30,10 +30,11 @@
  <td th:text="${#temporals.format(c.fechai,'dd/MM/yyyy')}"></td>
  <td th:text="${c.hora}"></td>
  <td th:text="${c.modalidad}"></td>
-  <td>
- <button type="button" class="btn btn-warning">Editar</button>
- <button type="button" class="btn btn-danger">Eliminar</button>
- </td>
+    <td>
+    
+          <a th:href="@{/curso/editarCurso/}+${c.codigo}" id="editarCurso" type="button" class="btn btn-warning">Editar</a>
+          <a th:href="@{/curso/eliminarCurso/}+${c.codigo}" id="eliminarCurso" type="button" class="btn btn-danger">Eliminar</a>
+    </td>
  </tr>
 </table>
 </div>

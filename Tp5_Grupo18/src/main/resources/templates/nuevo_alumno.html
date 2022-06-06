@@ -4,14 +4,14 @@
 <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 <meta charset="ISO-8859-1">
-<title>Nuevo Alumno</title>
+<title>NUEVO ALUMNO</title>
 </head>
 <body>
 <div class="container">
 <div class="row justify-content-center mt-5 pt-5">
 <div class="col-md-5 ">
- <h2>Alta de Alumno</h2>
- <form th:action="@{/saveAlumno}" th:object="${alumno}" th:method="post"> 
+ <h2>ALTA DE ALUMNO</h2>
+ <form th:action="@{/alumno/guardarAlumno}" th:object="${alumno}" th:method="post"> 
   <div class="row mb-3">
     <label for="inputDni3" class="col-sm-2 col-form-label">Dni</label>
     <div class="col-sm-10">

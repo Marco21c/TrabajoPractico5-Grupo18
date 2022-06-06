@@ -1,8 +1,11 @@
 package ar.edu.unju.fi.aplicacion.util;
 
 import java.util.ArrayList;
-import ar.edu.unju.fi.aplicacion.model.Alumno;
 
+import org.springframework.stereotype.Component;
+
+import ar.edu.unju.fi.aplicacion.model.Alumno;
+@Component
 public class ListaAlumnos {
 	ArrayList<Alumno> alumnos;
 	

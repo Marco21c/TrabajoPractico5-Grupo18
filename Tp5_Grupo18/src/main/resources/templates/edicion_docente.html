@@ -12,12 +12,16 @@
 		<br>
 		<p class="h4">Edicion Docente</p>
 		<br>
+<<<<<<< HEAD
 		
 		<form th:action="@{/docente/modificar}" method="POST" th:object="${docente}">
+=======
+		<form action="@{/docente/modificar}" method="POST" th:object="${docente}">
+>>>>>>> branch 'master' of https://github.com/Marco21c/TrabajoPractico5-Grupo18.git
 			<div class="mb-3">
-			<input type="hidden" th:field="*{legajo}"/>
-				<label for=legajoId>LEGAJO</label>
-				<input th:value="${legajo}" type="number" class="form-control" id="legajoId" disabled="disabled">
+			<input type="hidden" th:field="*{codigo}"/>
+				<label for=codigoId>CODIGO</label>
+				<input th:value="${codigo}" type="number" class="form-control" id="codigoId" disabled="disabled">
 			</div>
 			<div class="mb-3">
 				<label for="nombresId" class="form-label">NOMBRES</label>
