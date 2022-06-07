@@ -2,6 +2,7 @@ package ar.edu.unju.fi.aplicacion.service;
 
 import ar.edu.unju.fi.aplicacion.model.Beca;
 import ar.edu.unju.fi.aplicacion.util.ListaBecas;
+import ar.edu.unju.fi.aplicacion.util.ListaCursos;
 
 
 public interface IBecaService {
@@ -12,5 +13,5 @@ public interface IBecaService {
 	public void modificarBeca(Beca beca);
 	public void eliminarBeca(int codigo);
 	public Beca buscarBeca(int codigo);
-
+    public ListaCursos  getListaCursos();
 }

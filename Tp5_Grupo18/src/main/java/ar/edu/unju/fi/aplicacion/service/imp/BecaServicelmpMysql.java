@@ -3,6 +3,7 @@ package ar.edu.unju.fi.aplicacion.service.imp;
 import ar.edu.unju.fi.aplicacion.model.Beca;
 import ar.edu.unju.fi.aplicacion.service.IBecaService;
 import ar.edu.unju.fi.aplicacion.util.ListaBecas;
+import ar.edu.unju.fi.aplicacion.util.ListaCursos;
 
 public class BecaServicelmpMysql implements IBecaService {
 
@@ -38,6 +39,12 @@ public class BecaServicelmpMysql implements IBecaService {
 
 	@Override
 	public Beca buscarBeca(int codigo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ListaCursos getListaCursos() {
 		// TODO Auto-generated method stub
 		return null;
 	}

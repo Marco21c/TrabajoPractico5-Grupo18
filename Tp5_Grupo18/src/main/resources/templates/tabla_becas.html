@@ -30,8 +30,8 @@
  <td th:text="${#temporals.format(b.fecha_cierre,'dd/MM/yyyy')}"></td>
  <td th:text="${b.estado}"></td>
  <td>
- <button type="button" class="btn btn-warning">Editar</button>
- <button type="button" class="btn btn-danger">Eliminar</button>
+     <a th:href="@{/beca/editarBeca/}+${b.codigo}" id="editarCurso" type="button" class="btn btn-warning">Editar</a>
+     <a th:href="@{/beca/eliminarBeca/}+${b.codigo}" id="eliminarCurso" type="button" class="btn btn-danger">Eliminar</a>
  </td>
  </tr>
 </table>

@@ -8,13 +8,15 @@ import org.springframework.stereotype.Service;
 import ar.edu.unju.fi.aplicacion.model.Beca;
 import ar.edu.unju.fi.aplicacion.service.IBecaService;
 import ar.edu.unju.fi.aplicacion.util.ListaBecas;
+import ar.edu.unju.fi.aplicacion.util.ListaCursos;
 
 @Service("BecaServiceImp")
 public class BecaServicelmp implements IBecaService {
 	
 	@Autowired
 	public ListaBecas listaBecas;
-
+	@Autowired
+    public ListaCursos listaCursos;
 	@Override
 	public Beca getBeca() {
 		// TODO Auto-generated method stub
@@ -61,4 +63,9 @@ public class BecaServicelmp implements IBecaService {
 		return beca.get();
 	}
 
+	@Override
+	public ListaCursos getListaCursos() {
+		// TODO Auto-generated method stub
+		return listaCursos;
+	}
 }
