@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.aplicacion.service;
 
 import ar.edu.unju.fi.aplicacion.model.Docente;
+import ar.edu.unju.fi.aplicacion.util.ListaCursos;
 import ar.edu.unju.fi.aplicacion.util.ListaDocente;
 
 public interface IDocenteService {
@@ -11,5 +12,5 @@ public interface IDocenteService {
 	public void eliminarDocente(int legajo);
 	public ListaDocente getListaDocente();
 	public Docente buscarDocente(int legajo);
-
+    public ListaCursos getListaCursos();
 }

@@ -7,13 +7,15 @@ import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.aplicacion.model.Docente;
 import ar.edu.unju.fi.aplicacion.service.IDocenteService;
+import ar.edu.unju.fi.aplicacion.util.ListaCursos;
 import ar.edu.unju.fi.aplicacion.util.ListaDocente;
 @Service("DocenteServiceImpList")
 public class DocenteServiceImp implements IDocenteService {
 	//inyeccion de objeto
 	@Autowired
 	private ListaDocente listaDocente;
-
+	@Autowired
+    public ListaCursos listaCursos;
 	@Override
 	public Docente getDocente() {
 		// retorna un objeto de la clase alumno
@@ -36,6 +38,7 @@ public class DocenteServiceImp implements IDocenteService {
 				doc.setNombre(docente.getNombre());
 				doc.setEmail(docente.getEmail());
 				doc.setTelefono(docente.getTelefono());
+				doc.setCurso(docente.getCurso());
 			}
 		}
 
@@ -60,6 +63,12 @@ public class DocenteServiceImp implements IDocenteService {
 		// busca un docente por legajo y devuelve el objeto asociado al legajo
 		Optional<Docente> docente = listaDocente.getDocentes().stream().filter(d -> d.getLegajo() == legajo).findFirst();
 		return docente.get();
+	}
+
+	@Override
+	public ListaCursos getListaCursos() {
+		// TODO Auto-generated method stub
+		return listaCursos;
 	}
 
 }

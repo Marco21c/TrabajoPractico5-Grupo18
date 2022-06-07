@@ -4,10 +4,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 
-import org.springframework.stereotype.Component;
 
 
 public class Docente {
@@ -21,18 +19,20 @@ public class Docente {
 	private String email;
 	@PositiveOrZero
 	private long telefono;
-	
+	@NotNull
+	private Curso curso;
 	public Docente() {
 		
 	}
 	
-	public Docente(int legajo, String nombre, String apellido, String email, long telefono) {
+	public Docente(int legajo, String nombre, String apellido, String email, long telefono,Curso curso) {
 		super();
 		this.legajo = legajo;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
 		this.telefono = telefono;
+		this.curso = curso;
 	}
 	public int getLegajo() {
 		return legajo;
@@ -63,6 +63,14 @@ public class Docente {
 	}
 	public void setTelefono(long telefono) {
 		this.telefono = telefono;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 	
 	

@@ -38,6 +38,7 @@ public class DocenteController {
 	public String GetDocentePage(Model model){	
 	//Docente docente = new Docente();
 	model.addAttribute("docente", docenteService.getDocente());
+	model.addAttribute("listaCursos",docenteService.getListaCursos().getCursos());
     return "nuevo_docente";
     }
 	
@@ -69,6 +70,7 @@ public class DocenteController {
 		ModelAndView mav = new ModelAndView("edicion_docente");
 		Docente docente = docenteService.buscarDocente(lg);
 		mav.addObject("docente", docente);
+		mav.addObject("listaCursos",docenteService.getListaCursos().getCursos());
 		return mav;
 	}
 	
