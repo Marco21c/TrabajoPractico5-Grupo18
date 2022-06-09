@@ -1,13 +1,23 @@
-package ar.edu.unju.fi.aplicacion.model;
+package ar.edu.unju.fi.aplicacion.entity;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
+
+@Entity
+@Table(name ="alumnos")
 public class Alumno {
+	@Id
 	private long dni;
+	@Column(name= "NOMBRE_ALU")
 	private String nombre;
+	@Column(name="APELLIDO_ALU")
 	private String apellido;
+	@Column(name="EMAIL_ALU")
 	private String email;
+	@Column(name="TEL_ALU")
 	private long telefono;
 	
 	public Alumno() {

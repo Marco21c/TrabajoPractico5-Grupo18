@@ -1,4 +1,4 @@
-package ar.edu.unju.fi.aplicacion.model;
+package ar.edu.unju.fi.aplicacion.entity;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;

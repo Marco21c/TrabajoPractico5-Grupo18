@@ -1,7 +1,6 @@
 package ar.edu.unju.fi.aplicacion.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -18,9 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unju.fi.aplicacion.model.Docente;
+import ar.edu.unju.fi.aplicacion.entity.Docente;
 import ar.edu.unju.fi.aplicacion.service.IDocenteService;
-import ar.edu.unju.fi.aplicacion.util.ListaDocente;
 
 @Controller
 @RequestMapping("/docente")

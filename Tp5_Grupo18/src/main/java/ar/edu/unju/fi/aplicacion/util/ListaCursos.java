@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import ar.edu.unju.fi.aplicacion.model.Curso;
+import ar.edu.unju.fi.aplicacion.entity.Curso;
 @Component
 public class ListaCursos {
   ArrayList<Curso> cursos;

@@ -1,6 +1,6 @@
 package ar.edu.unju.fi.aplicacion.service.imp;
 
-import ar.edu.unju.fi.aplicacion.model.Curso;
+import ar.edu.unju.fi.aplicacion.entity.Curso;
 import ar.edu.unju.fi.aplicacion.service.ICursoService;
 import ar.edu.unju.fi.aplicacion.util.ListaCursos;
 

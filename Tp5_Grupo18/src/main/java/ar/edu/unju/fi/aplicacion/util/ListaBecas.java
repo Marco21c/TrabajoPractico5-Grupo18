@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
 
-import ar.edu.unju.fi.aplicacion.model.Beca;
-import ar.edu.unju.fi.aplicacion.model.Curso;
+import ar.edu.unju.fi.aplicacion.entity.Beca;
+import ar.edu.unju.fi.aplicacion.entity.Curso;
 @Component
 public class ListaBecas {
 	ArrayList<Beca> becas;

@@ -1,6 +1,6 @@
 package ar.edu.unju.fi.aplicacion.service.imp;
 
-import ar.edu.unju.fi.aplicacion.model.Alumno;
+import ar.edu.unju.fi.aplicacion.entity.Alumno;
 import ar.edu.unju.fi.aplicacion.service.IAlumnoService;
 import ar.edu.unju.fi.aplicacion.util.ListaAlumnos;
 

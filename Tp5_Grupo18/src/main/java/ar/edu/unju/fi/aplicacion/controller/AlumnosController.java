@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import ar.edu.unju.fi.aplicacion.model.Alumno;
+
+import ar.edu.unju.fi.aplicacion.entity.Alumno;
 import ar.edu.unju.fi.aplicacion.service.IAlumnoService;
 import ar.edu.unju.fi.aplicacion.util.ListaAlumnos;
 

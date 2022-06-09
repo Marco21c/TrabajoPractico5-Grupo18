@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.edu.unju.fi.aplicacion.model.Alumno;
+import ar.edu.unju.fi.aplicacion.entity.Alumno;
 import ar.edu.unju.fi.aplicacion.service.IAlumnoService;
 import ar.edu.unju.fi.aplicacion.util.ListaAlumnos;
 @Service("AlumnoServiceImpList")

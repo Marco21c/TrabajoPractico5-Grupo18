@@ -1,6 +1,6 @@
 package ar.edu.unju.fi.aplicacion.service;
 
-import ar.edu.unju.fi.aplicacion.model.Docente;
+import ar.edu.unju.fi.aplicacion.entity.Docente;
 import ar.edu.unju.fi.aplicacion.util.ListaCursos;
 import ar.edu.unju.fi.aplicacion.util.ListaDocente;
 
