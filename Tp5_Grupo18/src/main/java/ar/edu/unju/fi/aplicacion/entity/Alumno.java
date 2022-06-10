@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Table(name ="alumnos")
 public class Alumno {
 	@Id
+	@Column(name= "DNI_ALU")
 	private long dni;
 	@Column(name= "NOMBRE_ALU")
 	private String nombre;

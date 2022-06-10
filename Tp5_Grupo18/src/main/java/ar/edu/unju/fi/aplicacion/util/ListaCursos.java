@@ -11,7 +11,6 @@ import ar.edu.unju.fi.aplicacion.entity.Curso;
 public class ListaCursos {
   ArrayList<Curso> cursos;
 
-
 public List<Curso> getCursos() {
 	return cursos;
 }

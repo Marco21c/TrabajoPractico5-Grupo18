@@ -1,19 +1,25 @@
 package ar.edu.unju.fi.aplicacion.service.imp;
 
 
+import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import ar.edu.unju.fi.aplicacion.entity.Curso;
+import ar.edu.unju.fi.aplicacion.repository.ICursosDAO;
 import ar.edu.unju.fi.aplicacion.service.ICursoService;
-import ar.edu.unju.fi.aplicacion.util.ListaCursos;
+
 
 @Service("CursoServiceImp")
 public class CursoServiceImp implements ICursoService {
-@Autowired
-public ListaCursos listaCursos;
+
+@Autowired 
+ICursosDAO cursosDAOImp; 
+    @Override
+    public void guardarCurso(Curso curso) {
+	// TODO Auto-generated method stub
+    	cursosDAOImp.save(curso);
+    }    
 
 	@Override
 	public Curso getCurso() {
@@ -22,22 +28,17 @@ public ListaCursos listaCursos;
 	}
 
 	@Override
-	public ListaCursos getListaCursos() {
+	public List<Curso> getListaCursos() {
 		// TODO Auto-generated method stub
-		return listaCursos;
-	}
-
-	@Override
-	public boolean agregarCurso(Curso curso) {
-		// TODO Auto-generated method stub
-		boolean resp = listaCursos.getCursos().add(curso);
-		return resp;
+		 
+		return cursosDAOImp.findAll();
 	}
 
 	@Override
 	public void modificarCurso(Curso curso) {
 		// TODO Auto-generated method stub
-		for(Curso c:listaCursos.getCursos()){
+		
+		/*for(Curso c:listaCursos.getCursos()){
 		 if(c.getCodigo()==curso.getCodigo()) {
 			 c.setCategoria(curso.getCategoria());
 			 c.setCodigo(curso.getCodigo());
@@ -46,22 +47,24 @@ public ListaCursos listaCursos;
 			 c.setModalidad(curso.getModalidad());
 			 c.setTitulo(curso.getTitulo());
 		 }
-		}
+		}*/
+		cursosDAOImp.save(curso);
 	}
 
 	@Override
-	public void eliminarCurso(int codigo) {
-		// TODO Auto-generated method stub
-		Optional<Curso> curso = listaCursos.getCursos().stream().filter(c-> c.getCodigo() == codigo).findFirst();
-		listaCursos.getCursos().remove(curso.get());
-	}
-
-	@Override
-	public Curso buscarCurso(int codigo) {
-		Optional<Curso> curso = listaCursos.getCursos().stream().filter(c-> c.getCodigo() == codigo).findFirst();
+	public void eliminarCurso(long codigo) {
 		
-		// TODO Auto-generated method stub
+		cursosDAOImp.deleteById(codigo);
+	}
+
+	@Override
+	public Curso buscarCurso(long codigo) {
+		
+		 Optional<Curso> curso = cursosDAOImp.findById(codigo);
+	
 		return curso.get();
 	}
+
+	
 
 }

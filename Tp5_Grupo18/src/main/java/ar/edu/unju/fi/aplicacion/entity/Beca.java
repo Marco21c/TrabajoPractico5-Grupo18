@@ -1,37 +1,52 @@
 package ar.edu.unju.fi.aplicacion.entity;
 
 import java.time.LocalDate;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Component;
 
+@Entity
+@Table(name= "becas")
 public class Beca {
-	@Positive(message="Debe ser un valor mayor a 0")
+	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY)
+	@Column(name="CODIGO_BEC")
 	private int codigo;
-	@NotNull(message= "Debe elegir un curso.")
-	private Curso curso;
+	@Column(name= "FECHA_INIC_BEC")
 	@FutureOrPresent(message="Debe ser una fecha actual o futura.")
 	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private LocalDate fecha_inicio;
+	@Column(name= "FECHA_FIN_BEC")
 	@Future(message="Debe ser una fecha futura.")
 	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private LocalDate fecha_cierre;
+	@Column(name ="ESTADO_BEC")
 	@NotEmpty(message="Debe agregar un estado.")
 	private String estado;
+	@Autowired
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name= "ID_CURSO")
+	@NotNull(message= "Debe elegir un curso.")
+	private Curso curso;
 	
 	public Beca() {
 		
 	}
 	
-	public Beca(int codigo, Curso curso, LocalDate fecha_inicio, LocalDate fecha_cierre, String estado) {
+	public Beca(Curso curso, LocalDate fecha_inicio, LocalDate fecha_cierre, String estado) {
 		super();
-		this.codigo = codigo;
 		this.curso = curso;
 		this.fecha_inicio = fecha_inicio;
 		this.fecha_cierre = fecha_cierre;

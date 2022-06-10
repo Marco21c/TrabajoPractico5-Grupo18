@@ -43,19 +43,19 @@ private static final Log LOGGER = LogFactory.getLog(CursosController.class);
 			return modelAndView;
 		}
 		ModelAndView modelAndView = new ModelAndView("redirect:/curso/listaCursos");
-		if(cursoService.agregarCurso(curs)) {
-			LOGGER.info("Se agrego curso a la lista de cursos.");
-		}
+		cursoService.guardarCurso(curs);
+		LOGGER.info("Se agrego curso a la lista de cursos.");
+		
 		modelAndView.addObject("cursos",cursoService.getListaCursos());
 		return modelAndView ;
 	}
 	@GetMapping("/listaCursos")
 	public String getListaCursosPage(Model model) {
-		model.addAttribute("cursos", cursoService.getListaCursos().getCursos());
+		model.addAttribute("cursos", cursoService.getListaCursos());
 		return "tabla_cursos";
 	}
 	
-	@GetMapping("/editarCurso/{codigo}")
+@GetMapping("/editarCurso/{codigo}")
 	public ModelAndView getEditarCurso (@PathVariable(value="codigo")int cod) {
 		ModelAndView mAv = new ModelAndView("editar_curso");
 		Curso curs = cursoService.buscarCurso(cod);
