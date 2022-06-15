@@ -43,8 +43,9 @@ private static final Log LOGGER = LogFactory.getLog(CursosController.class);
 			return modelAndView;
 		}
 		ModelAndView modelAndView = new ModelAndView("redirect:/curso/listaCursos");
-		cursoService.guardarCurso(curs);
-		LOGGER.info("Se agrego curso a la lista de cursos.");
+		if(cursoService.guardarCurso(curs)) {
+			LOGGER.info("Se agrego curso a la lista de cursos.");
+		}
 		
 		modelAndView.addObject("cursos",cursoService.getListaCursos());
 		return modelAndView ;

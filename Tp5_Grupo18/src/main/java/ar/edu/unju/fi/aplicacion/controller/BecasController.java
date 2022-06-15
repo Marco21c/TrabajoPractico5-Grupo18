@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import ar.edu.unju.fi.aplicacion.entity.Beca;
 import ar.edu.unju.fi.aplicacion.service.IBecaService;
-import ar.edu.unju.fi.aplicacion.util.ListaCursos;
+import ar.edu.unju.fi.aplicacion.service.ICursoService;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -24,19 +23,20 @@ import org.springframework.validation.annotation.Validated;
 @Controller
 @RequestMapping("/beca")
 public class BecasController {
-	//ListaBecas listaBecas = new ListaBecas();    
 	
 	private static final Log LOGGER = LogFactory.getLog(BecasController.class);
 
 	@Autowired
 	@Qualifier("BecaServiceImp")
 	private IBecaService becaService;
+	@Autowired
+	@Qualifier("CursoServiceImp")
+	private ICursoService cursoService;
 	
 	@GetMapping("/nuevo")
 	public String GetBecaPage(Model model){	
 	model.addAttribute("beca", becaService.getBeca());
-	//ListaCursos listacursos = new ListaCursos();
-	model.addAttribute("listaCurso",becaService.getListaCursos().getCursos());
+	model.addAttribute("listaCurso",cursoService.getListaCursos());
     return "nueva_beca";
     }
 	
@@ -46,11 +46,12 @@ public class BecasController {
 			LOGGER.error("No se cumplen las reglas de validación");
 			ModelAndView modelAndview = new ModelAndView("nueva_beca");
 			modelAndview.addObject("beca", bec);
+			modelAndview.addObject("listaCurso",cursoService.getListaCursos());
 			return modelAndview;
 		}
 		ModelAndView modelAndView = new ModelAndView("redirect:/beca/listaBecas");
 		if(becaService.agregarBeca(bec)) {
-			LOGGER.info("Se guardó un objeto beca en la lista de becas");
+		LOGGER.info("Se guardó un objeto beca en la lista de becas");
 		}
 		modelAndView.addObject("becas",becaService.getListaBecas());
 		return modelAndView ;
@@ -58,7 +59,7 @@ public class BecasController {
 	
 		@GetMapping("/listaBecas")
 		public String GetlistaBecaPage(Model model){	
-		 model.addAttribute("becas", becaService.getListaBecas().getBecas());
+		 model.addAttribute("becas", becaService.getListaBecas());
 	    return "tabla_becas";
 	    }
 		
@@ -67,7 +68,7 @@ public class BecasController {
 			ModelAndView mav = new ModelAndView("edicion_beca");
 			Beca bec = becaService.buscarBeca(cod);
 			mav.addObject("beca", bec);
-			mav.addObject("listaCurso",becaService.getListaCursos().getCursos());
+			mav.addObject("listaCurso",cursoService.getListaCursos());
 			return mav;
 		}
 		@PostMapping("/modificar")
@@ -76,12 +77,14 @@ public class BecasController {
 				LOGGER.info("Ocurrio un error en la validacion de "+bec);
 				ModelAndView mav = new ModelAndView("edicion_beca");
 				mav.addObject("beca", bec);
+				mav.addObject("listaCurso",cursoService.getListaCursos());
 			}
 			 LOGGER.info("Se modifico el curso"+bec); 
 			ModelAndView mav = new ModelAndView("redirect:/beca/listaBecas");
 			becaService.modificarBeca(bec);
 			return mav;
 		}
+		
 		@GetMapping("/eliminarBeca/{codigo}")
 		public ModelAndView getEliminarBeca(@PathVariable(value="codigo")int cod){
 			LOGGER.info("Se elimino la beca con codigo: "+cod); 

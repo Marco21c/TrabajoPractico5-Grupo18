@@ -4,7 +4,7 @@ import java.util.List;
 import ar.edu.unju.fi.aplicacion.entity.Curso;
 
 public interface ICursoService {
-    public void guardarCurso(Curso curso);
+    public boolean guardarCurso(Curso curso);
 	public Curso getCurso();
 	public List<Curso> getListaCursos();
 	public void modificarCurso(Curso curso);

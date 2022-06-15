@@ -13,18 +13,11 @@
 <div class="col-md-5 ">
  <h2>Nueva Beca</h2>
  <form th:action="@{/beca/guardarBeca}" th:object="${beca}" method="POST"> 
-  <div class="row mb-3">
-    <label for="inputCodigo3" class="col-sm-2 col-form-label">Codigo</label>
-    <div class="col-sm-10">
-      <input type="number" th:field="*{codigo}" class="form-control" id="inputCodigo3" placerholder="Ingrese Codigo">
-      <div class="text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
-    </div>
-  </div>
  <div class="row mb-3">
     <label for="inputCurso3" class="col-sm-2 col-form-label">Curso</label>
     <div class="col-sm-10">
-      <select th:field="*{curso.titulo}" class="form-control" id="inputCurso3">
-		<option th:each="c:${listaCurso}" th:value="${c.titulo}" th:text="${c.titulo}"/>
+      <select th:field="*{curso.codigo}" class="form-control" id="inputCurso3" >
+		<option th:each="c:${listaCurso}" th:value="${c.codigo}" th:text="${c.titulo}" />
 	  </select>
 	  <div class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></div>
     </div>
@@ -33,24 +26,19 @@
  <div class="row mb-3">
     <label for="inputFinicio3" class="col-sm-2 col-form-label">Fecha de inicio</label>
     <div class="col-sm-10">
-      <input type="date"  th:field="*{fecha_inicio}" class="form-control" id="inputFinicio3" placerholder="Ingrese Fecha de inicio">
+      <input type="date"  th:field="*{fecha_inicio}" class="form-control" id="inputFinicio3" placeholder="Ingrese Fecha de inicio">
       <div class="text-danger" th:if="${#fields.hasErrors('fecha_inicio')}" th:errors="*{fecha_inicio}"></div>
     </div>
   </div>
   <div class="row mb-3">
     <label for="inputFcierre3" class="col-sm-2 col-form-label">Fecha de cierre</label>
     <div class="col-sm-10">
-      <input type="date" th:field="*{fecha_cierre}" class="form-control" id="inputFcierre3" placerholder="Ingrese Fecha de cierre">
+      <input type="date" th:field="*{fecha_cierre}" class="form-control" id="inputFcierre3" placeholder="Ingrese Fecha de cierre">
       <div class="text-danger" th:if="${#fields.hasErrors('fecha_cierre')}" th:errors="*{fecha_cierre}"></div>
     </div>
   </div>
-   <div class="row mb-3">
-    <label for="inputEstado3" class="col-sm-2 col-form-label">Estado</label>
-    <div class="col-sm-10">
-      <input type="text"  th:field="*{estado}" class="form-control" id="inputEstado3">
-      <div class="text-danger" th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></div>
-    </div>
-  </div>
+   
+   
    <button type="submit" class="btn btn-primary">Enviar</button>
    <a th:href="@{/pdc/inicio}" class="btn btn-primary" role="button" data-bs-toggle="button">Cancelar</a>
  </form> 

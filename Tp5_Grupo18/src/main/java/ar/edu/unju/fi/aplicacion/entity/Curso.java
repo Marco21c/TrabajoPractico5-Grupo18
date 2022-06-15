@@ -40,7 +40,8 @@ public class Curso {
 	@Column(name= "MODALID_CUR")
 	@NotEmpty(message="La modalidad no tiene que estar vacia.")
 	private String modalidad;
-	
+	@Column(name="ESTADO_CUR")
+	private boolean estado;
 	@OneToMany(mappedBy = "curso" , cascade = CascadeType.ALL)
 	private List<Beca> beca = new ArrayList<>();
 	
@@ -48,7 +49,7 @@ public class Curso {
 		
 	}
 	
-	public Curso(long codigo, String titulo, String categoria, LocalDate fechai, int hora, String modalidad) {
+	public Curso(long codigo, String titulo, String categoria, LocalDate fechai, int hora, String modalidad,boolean estado) {
 		super();
 		this.codigo = codigo;
 		this.titulo = titulo;
@@ -56,6 +57,7 @@ public class Curso {
 		this.fechai = fechai;
 		this.hora = hora;
 		this.modalidad = modalidad;
+		this.estado = estado;
 	}
 	
 	
@@ -102,6 +104,14 @@ public class Curso {
 
 	public void setBeca(List<Beca> beca) {
 		this.beca = beca;
+	}
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 	
 	

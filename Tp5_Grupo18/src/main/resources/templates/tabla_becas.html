@@ -20,15 +20,13 @@
  <th> Curso</th>
  <th> fecha de inicio</th>
  <th> fecha de cierre</th>
- <th> estado</th>
  <th> Opciones </th>
  </tr>
  <tr th:each="b:${becas}">
  <td th:text="${b.codigo}"></td>
- <td th:text="${b.curso.titulo}"></td>
+ <td th:text="${b.curso.codigo}"></td>
  <td th:text="${#temporals.format(b.fecha_inicio,'dd/MM/yyyy')}"></td>
  <td th:text="${#temporals.format(b.fecha_cierre,'dd/MM/yyyy')}"></td>
- <td th:text="${b.estado}"></td>
  <td>
      <a th:href="@{/beca/editarBeca/}+${b.codigo}" id="editarCurso" type="button" class="btn btn-warning">Editar</a>
      <a th:href="@{/beca/eliminarBeca/}+${b.codigo}" id="eliminarCurso" type="button" class="btn btn-danger">Eliminar</a>

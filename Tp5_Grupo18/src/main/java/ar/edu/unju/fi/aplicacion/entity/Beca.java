@@ -14,7 +14,6 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -23,7 +22,7 @@ public class Beca {
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY)
 	@Column(name="CODIGO_BEC")
-	private int codigo;
+	private long codigo;
 	@Column(name= "FECHA_INIC_BEC")
 	@FutureOrPresent(message="Debe ser una fecha actual o futura.")
 	@DateTimeFormat(pattern= "yyyy-MM-dd")
@@ -33,9 +32,8 @@ public class Beca {
 	@DateTimeFormat(pattern= "yyyy-MM-dd")
 	private LocalDate fecha_cierre;
 	@Column(name ="ESTADO_BEC")
-	@NotEmpty(message="Debe agregar un estado.")
-	private String estado;
-	@Autowired
+	private boolean estado;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name= "ID_CURSO")
 	@NotNull(message= "Debe elegir un curso.")
@@ -45,7 +43,7 @@ public class Beca {
 		
 	}
 	
-	public Beca(Curso curso, LocalDate fecha_inicio, LocalDate fecha_cierre, String estado) {
+	public Beca(Curso curso, LocalDate fecha_inicio, LocalDate fecha_cierre, boolean estado) {
 		super();
 		this.curso = curso;
 		this.fecha_inicio = fecha_inicio;
@@ -53,11 +51,11 @@ public class Beca {
 		this.estado = estado;
 	}
 
-	public int getCodigo() {
+	public long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
 
@@ -85,13 +83,12 @@ public class Beca {
 		this.fecha_cierre = fecha_cierre;
 	}
 
-	public String getEstado() {
+	public boolean isEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
-	
-	
+
 }

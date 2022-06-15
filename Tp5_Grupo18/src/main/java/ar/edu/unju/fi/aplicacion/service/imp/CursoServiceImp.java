@@ -16,8 +16,14 @@ public class CursoServiceImp implements ICursoService {
 @Autowired 
 ICursosDAO cursosDAOImp; 
     @Override
-    public void guardarCurso(Curso curso) {
-    	cursosDAOImp.save(curso);
+    public boolean guardarCurso(Curso curso) {
+    	curso.setEstado(true);
+    	
+    	if(cursosDAOImp.save(curso)!=null) {
+    		return true;
+    	}
+    	
+    	return false;
     }    
 
 	@Override
@@ -27,17 +33,20 @@ ICursosDAO cursosDAOImp;
 
 	@Override
 	public List<Curso> getListaCursos() {
-		return cursosDAOImp.findAll();
+		return cursosDAOImp.findByEstado(true);
 	}
 
 	@Override
 	public void modificarCurso(Curso curso) {
+		curso.setEstado(true);
 		cursosDAOImp.save(curso);
 	}
 
 	@Override
 	public void eliminarCurso(long codigo) {	
-		cursosDAOImp.deleteById(codigo);
+		Curso curso = buscarCurso(codigo);
+		curso.setEstado(false);
+		cursosDAOImp.save(curso);
 	}
 
 	@Override

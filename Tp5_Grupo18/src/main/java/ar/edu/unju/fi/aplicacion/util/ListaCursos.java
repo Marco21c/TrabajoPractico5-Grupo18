@@ -21,11 +21,11 @@ public void setCursos(ArrayList<Curso> cursos) {
 }
 
 
-public ListaCursos(){
+/*public ListaCursos(){
 	cursos = new ArrayList<Curso>();
 	cursos.add(new Curso(1,"Marketing","Negocios",LocalDate.of(2022, 8, 10),3,"presencial"));
 	cursos.add(new Curso(1,"Algebra","Matematicas",LocalDate.of(2022, 7, 11),2,"presencial"));
 }
 
-
+*/
 }
