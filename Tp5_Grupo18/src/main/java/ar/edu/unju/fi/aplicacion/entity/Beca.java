@@ -34,7 +34,7 @@ public class Beca {
 	@Column(name ="ESTADO_BEC")
 	private boolean estado;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name= "ID_CURSO")
 	@NotNull(message= "Debe elegir un curso.")
 	private Curso curso;

@@ -13,7 +13,7 @@ import ar.edu.unju.fi.aplicacion.util.ListaDocente;
 public class DocenteServiceImp implements IDocenteService {
 	//inyeccion de objeto
 	@Autowired
-	private ListaDocente listaDocente;
+	
 	@Autowired
     public ListaCursos listaCursos;
 	@Override

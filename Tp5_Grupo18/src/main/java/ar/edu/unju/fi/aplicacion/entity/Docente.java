@@ -1,5 +1,8 @@
 package ar.edu.unju.fi.aplicacion.entity;
 
+import java.util.List;
+
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -20,19 +23,22 @@ public class Docente {
 	@PositiveOrZero
 	private long telefono;
 	@NotNull
-	private Curso curso;
+	
+	@ManyToMany(mappedBy ="cursos")
+	private List<Curso> cursos;
+	
 	public Docente() {
 		
 	}
 	
-	public Docente(int legajo, String nombre, String apellido, String email, long telefono,Curso curso) {
+	public Docente(int legajo, String nombre, String apellido, String email, long telefono) {
 		super();
 		this.legajo = legajo;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
 		this.telefono = telefono;
-		this.curso = curso;
+		
 	}
 	public int getLegajo() {
 		return legajo;
@@ -65,12 +71,12 @@ public class Docente {
 		this.telefono = telefono;
 	}
 
-	public Curso getCurso() {
-		return curso;
+	public List<Curso> getCursos() {
+		return cursos;
 	}
 
-	public void setCurso(Curso curso) {
-		this.curso = curso;
+	public void setCursos(List<Curso> cursos) {
+		this.cursos = cursos;
 	}
 	
 	

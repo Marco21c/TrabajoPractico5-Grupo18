@@ -42,7 +42,7 @@ public class BecaServicelmp implements IBecaService {
 	@Override
 	public void modificarBeca(Beca beca) {
 		// TODO Auto-generated method stub
-		
+		beca.setEstado(true);
        becasDAOImp.save(beca);
 	}
 

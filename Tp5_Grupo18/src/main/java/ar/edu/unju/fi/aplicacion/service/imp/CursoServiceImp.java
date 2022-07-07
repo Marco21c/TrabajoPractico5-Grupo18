@@ -45,8 +45,9 @@ ICursosDAO cursosDAOImp;
 	@Override
 	public void eliminarCurso(long codigo) {	
 		Curso curso = buscarCurso(codigo);
-		curso.setEstado(false);
+	curso.setEstado(false);
 		cursosDAOImp.save(curso);
+	//cursosDAOImp.deleteById(codigo);
 	}
 
 	@Override

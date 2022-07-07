@@ -6,9 +6,13 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.FutureOrPresent;
@@ -44,6 +48,13 @@ public class Curso {
 	private boolean estado;
 	@OneToMany(mappedBy = "curso" , cascade = CascadeType.ALL)
 	private List<Beca> beca = new ArrayList<>();
+	
+	@ManyToMany(mappedBy ="cursos")
+	private List<Alumno> alumnos;
+	
+	@ManyToMany(fetch= FetchType.EAGER)
+	@JoinTable(name="cursos_docentes", joinColumns = @JoinColumn(name="cursos_id"),inverseJoinColumns = @JoinColumn(name="docentes_id"))
+	private List<Docente> docentes;
 	
 	public Curso() {
 		
@@ -112,6 +123,22 @@ public class Curso {
 
 	public void setEstado(boolean estado) {
 		this.estado = estado;
+	}
+
+	public List<Alumno> getAlumnos() {
+		return alumnos;
+	}
+
+	public void setAlumnos(List<Alumno> alumnos) {
+		this.alumnos = alumnos;
+	}
+
+	public List<Docente> getDocentes() {
+		return docentes;
+	}
+
+	public void setDocentes(List<Docente> docentes) {
+		this.docentes = docentes;
 	}
 	
 	

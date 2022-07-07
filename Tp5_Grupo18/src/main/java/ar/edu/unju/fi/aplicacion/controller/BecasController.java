@@ -79,7 +79,7 @@ public class BecasController {
 				mav.addObject("beca", bec);
 				mav.addObject("listaCurso",cursoService.getListaCursos());
 			}
-			 LOGGER.info("Se modifico el curso"+bec); 
+			 LOGGER.info("Se modifico el curso"+bec.getCodigo()); 
 			ModelAndView mav = new ModelAndView("redirect:/beca/listaBecas");
 			becaService.modificarBeca(bec);
 			return mav;
