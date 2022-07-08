@@ -13,14 +13,7 @@
 <div class="col-md-5 ">
  <h2>Alta de Docente</h2>
  <form th:action="@{/docente/guardarDocente}" th:object="${docente}" method="POST"> 
-  <div class="row mb-3">
-    <label for="inputLegajo3" class="col-sm-2 col-form-label">Legajo</label>
-    <div class="col-sm-10">
-      <input type="number" th:field="*{legajo}" class="form-control" id="inputLegajo3">
-      <div class="text-danger" th:if="${#fields.hasErrors('legajo')}" th:errors="*{legajo}"></div>
-      
-    </div>
-  </div>
+  
  	<div class="row mb-3">
 	    <label for="inputNombres3" class="col-sm-2 col-form-label">Nombres</label>
 	    <div class="col-sm-10">
@@ -45,19 +38,11 @@
   <div class="row mb-3">
     <label for="inputTelefono3" class="col-sm-2 col-form-label">Telefono</label>
     <div class="col-sm-10">
-      <input type="tel" th:field="*{telefono}" class="form-control" id="inputTelefono3">
+      <input type="number" th:field="*{telefono}" class="form-control" id="inputTelefono3">
       <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
     </div>
   </div>
-  <div class="row mb-3">
-    <label for="inputCurso" class="col-sm-2 col-form-label">Curso</label>
-    <div class="col-sm-10">
-      <select th:field="*{curso.titulo}" class=" form-control" id="inputCurso" >
-        <option th:each="c:${listaCursos}" th:value="${c.titulo}" th:text="${c.titulo}"/>
-      </select> 
-      <div class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></div>
-    </div>
-  </div>
+
    <button type="submit" class="btn btn-primary">Enviar</button>
    <a th:href="@{/pdc/inicio}" class="btn btn-primary" role="button" >Cancelar</a>
  </form> 

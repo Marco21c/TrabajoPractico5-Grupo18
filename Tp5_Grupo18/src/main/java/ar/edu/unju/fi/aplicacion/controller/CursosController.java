@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.aplicacion.entity.Curso;
 import ar.edu.unju.fi.aplicacion.service.ICursoService;
+import ar.edu.unju.fi.aplicacion.service.IDocenteService;
 
 @Controller
 @RequestMapping("/curso")
@@ -27,10 +28,13 @@ private static final Log LOGGER = LogFactory.getLog(CursosController.class);
 	@Autowired
     @Qualifier("CursoServiceImp")
     private ICursoService cursoService;
-
+	@Autowired
+	@Qualifier("DocenteServiceImpList")
+	private IDocenteService docenteService;
 	@GetMapping("/nuevo")
 	public String GetCursoPage(Model model){		
 	model.addAttribute("curso",cursoService.getCurso());
+	model.addAttribute("docentes",docenteService.getListaDocente());
     return "nuevo_Curso";
     }
 	
@@ -39,6 +43,7 @@ private static final Log LOGGER = LogFactory.getLog(CursosController.class);
 		if(bindingResult.hasErrors()) {
 			LOGGER.error("No se cumplen las reglas de validación.");
 			ModelAndView modelAndView = new ModelAndView("nuevo_Curso");
+			modelAndView.addObject("docentes",docenteService.getListaDocente());
 			modelAndView.addObject("curso", curs);
 			return modelAndView;
 		}
@@ -61,6 +66,8 @@ private static final Log LOGGER = LogFactory.getLog(CursosController.class);
 		ModelAndView mAv = new ModelAndView("editar_curso");
 		Curso curs = cursoService.buscarCurso(cod);
 		mAv.addObject("curso", curs);
+		mAv.addObject("docentes",docenteService.getListaDocente());
+
 		return mAv;
 	}
 	@PostMapping("/modificar")
@@ -69,6 +76,7 @@ private static final Log LOGGER = LogFactory.getLog(CursosController.class);
 			LOGGER.info("Ocurrio un error en la validacion de "+curs);
 			ModelAndView mav = new ModelAndView("editar_curso");
 			mav.addObject("curso", curs);
+			mav.addObject("docentes",docenteService.getListaDocente());
 		}
 		 LOGGER.info("Se modifico el curso"+curs); 
 		ModelAndView mav = new ModelAndView("redirect:/curso/listaCursos");

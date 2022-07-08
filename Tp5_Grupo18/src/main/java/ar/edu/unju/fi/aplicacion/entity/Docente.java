@@ -1,30 +1,42 @@
 package ar.edu.unju.fi.aplicacion.entity;
 
 import java.util.List;
-
-import javax.persistence.ManyToMany;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 
-
-
+@Entity
+@Table(name="docentes")
 public class Docente {
-	@Min(value=1, message="el legajo debe ser mayor a 0")
+	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY)  
+	@Column(name="LEGAJO_DOC")
 	private int legajo;
+	@Column(name="NOMBRE_DOC")
 	@NotEmpty(message="el nombre del docente no puede estar vacio")
 	private String nombre;
+	@Column(name="APELLIDO_DOC")
 	@NotEmpty(message="el apellido del docente no puede estar vacio")
 	private String apellido;
+	@Column(name="EMAIL_DOC")
 	@NotEmpty @Email
 	private String email;
+	@Column(name="TELEFONO_DOC")
 	@PositiveOrZero
 	private long telefono;
-	@NotNull
+	@Column(name="ESTADO_DOC")	
+	private boolean estado;
 	
-	@ManyToMany(mappedBy ="cursos")
+	
+	@OneToMany(mappedBy ="docente")
 	private List<Curso> cursos;
 	
 	public Docente() {
@@ -77,6 +89,14 @@ public class Docente {
 
 	public void setCursos(List<Curso> cursos) {
 		this.cursos = cursos;
+	}
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 	
 	

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.aplicacion.entity.Docente;
+import ar.edu.unju.fi.aplicacion.service.ICursoService;
 import ar.edu.unju.fi.aplicacion.service.IDocenteService;
 
 @Controller
@@ -27,6 +28,9 @@ public class DocenteController {
 	@Autowired
 	@Qualifier("DocenteServiceImpList")
 	private IDocenteService docenteService;
+	@Autowired
+	@Qualifier("CursoServiceImp")
+	private ICursoService  cursoService;
 	
 	private static final Log LOGGER = LogFactory.getLog(DocenteController.class);
 	
@@ -36,7 +40,7 @@ public class DocenteController {
 	public String GetDocentePage(Model model){	
 	//Docente docente = new Docente();
 	model.addAttribute("docente", docenteService.getDocente());
-	model.addAttribute("listaCursos",docenteService.getListaCursos().getCursos());
+	model.addAttribute("listaCursos",cursoService.getListaCursos());
     return "nuevo_docente";
     }
 	
@@ -55,11 +59,18 @@ public class DocenteController {
 		//mav.addObject("docentes", docenteService.getListaDocente().getDocentes()); 
 		return mav;
 	}
-	
+	@GetMapping("/agregaraCurso")
+	public ModelAndView getDocenteaCurso(@PathVariable(value="legajo")int lg){
+		ModelAndView mav = new ModelAndView("edicion_docente");
+		Docente docente = docenteService.buscarDocente(lg);
+		mav.addObject("docente", docente);
+		mav.addObject("listaCursos",cursoService.getListaCursos());
+		return mav;
+	}
 	@GetMapping("/listaDocentes")
 	public ModelAndView getListaDocentesPage() {
 		ModelAndView mav = new ModelAndView("tabla_docentes");
-		mav.addObject("docentes", docenteService.getListaDocente().getDocentes());
+		mav.addObject("docentes", docenteService.getListaDocente());
 		return mav;
 	}
 	
@@ -68,7 +79,7 @@ public class DocenteController {
 		ModelAndView mav = new ModelAndView("edicion_docente");
 		Docente docente = docenteService.buscarDocente(lg);
 		mav.addObject("docente", docente);
-		mav.addObject("listaCursos",docenteService.getListaCursos().getCursos());
+		mav.addObject("listaCursos",cursoService.getListaCursos());
 		return mav;
 	}
 	

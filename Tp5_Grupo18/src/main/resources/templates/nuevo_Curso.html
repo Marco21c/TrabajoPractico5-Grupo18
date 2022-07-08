@@ -42,7 +42,15 @@
        <div class="text-danger" th:if="${#fields.hasErrors('hora')}" th:errors="*{hora}"></div>
     </div>
   </div>
- 
+  <div class="row mb-3">
+    <label for="inputCurso3" class="col-sm-2 col-form-label">Docente</label>
+    <div class="col-sm-10">
+      <select th:field="*{docente.legajo}" class="form-control" id="inputCurso3" >
+		<option th:each="c:${docentes}" th:value="${c.legajo}" th:text="${c.apellido}+', '+${c.nombre}" />
+	  </select>
+	  <div class="text-danger" th:if="${#fields.hasErrors('docente')}" th:errors="*{docente}"></div>
+    </div>
+  </div>
   <div class="row mb-3">
     <label for="inputModalidad3" class="col-sm-2 col-form-label">Modalidad</label>
     <div class="col-sm-10">

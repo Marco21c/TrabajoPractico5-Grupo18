@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<meta charset="UTF-8">
+<title>marketing</title>
+</head>
+<body>
+  <header th:replace="/layouts/header::header"></header>
+<h1> Curso: MARKETING </h1>
+<img alt="imagen de marketing" th:src= @{/images/marketing.jpg} height="400" title="marketing"/>
+
+<section>
+<h2> Informacion sobre el curso</h2>
+<p> El marketing es un conjunto de técnicas y estudios que tienen como objetivo mejorar la comercialización de un producto.</p>
+<table>
+ <tr>
+    <th> Titulo de Curso</th>
+    <th> fecha inicio</th>
+    <th> horario</th>
+    <th> fecha fin</th>
+    <th> modalidad (virtual/presencial)</th>
+    <th> docente</th>
+    <th> duracion en semanas</th>
+ </tr>
+ <tr>
+    <td> Marketing</td>
+    <td> 12/03/22</td>
+    <td> 18:30</td>
+    <td> 12/06/22</td>
+    <td>   Virtual</td>
+    <td> Paez Jose</td>
+    <td> 13 semanas</td>
+ </tr>
+</table>
+</section>
+ <footer th:replace="/layouts/footer::footer"></footer>
+</body>
+</html>

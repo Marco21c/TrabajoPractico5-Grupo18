@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+	<title>EDICION DOCENTE</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<header th:replace="/Layouts/header :: header"></header>
+	<div class="container">
+	<div class="row justify-content-center mt-5 pt-5">
+    <div class="col-md-5 ">
+		<h2>Edicion Docente</h2>
+		<form th:action="@{/docente/modificar}" method="POST" th:object="${docente}">
+		 <div class="row mb-3">
+			<input type="hidden" th:field="*{legajo}"/>
+			    <label for="legajoId"  class="col-sm-2 col-form-label" >LEGAJO</label>
+				<div class="col-sm-10">
+		           <input type="number" th:field="*{legajo}" class="form-control" id="legajoId" disabled="disabled">
+		          <div class="text-danger" th:if="${#fields.hasErrors('legajo')}" th:errors="*{legajo}"></div>
+		        </div>
+		 </div>
+	     <div class="row mb-3">
+			   <label for="nombresId" class="col-sm-2 col-form-label">NOMBRES</label>
+				<div class="col-sm-10">
+				   <input th:field="*{nombre}" type="text" class=form-control id="nombresId">
+				  <div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+				</div>
+	     </div>
+		 <div class="row mb-3">
+			   <label for="apellidoId" class="col-sm-2 col-form-label">APELLIDOS</label>
+				<div class="col-sm-10">
+				   <input th:field="*{apellido}" type="text" class=form-control id="apellidoId">
+				  <div class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+				</div>
+		 </div>
+		 <div class="row mb-3">
+			   <label for="emailId" class="col-sm-2 col-form-label">EMAIL</label>
+			    <div class="col-sm-10">
+				   <input th:field="*{email}" type="email" class=form-control id="emailId">
+				  <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+		        </div>
+		 </div>
+		 <div class="row mb-3">
+				<label for="telefonoId" class="col-sm-2 col-form-label">TELEFONO</label>
+				 <div class="col-sm-10">
+				   <input th:field="*{telefono}" type="number" class=form-control id="telefonoId">
+				  <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+				</div>
+		 </div>
+		 <div class="row mb-3">
+                <label for="inputCurso" class="col-sm-2 col-form-label">Curso</label>
+                 <div class="col-sm-10">
+                   <select th:field="*{curso.titulo}" class=" form-control" id="inputCurso" >
+                     <option th:each="c:${listaCursos}" th:value="${c.titulo}" th:text="${c.titulo}"/>
+                   </select> 
+                  <div class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></div>
+                 </div>
+         </div>
+				<button class="btn btn-primary me-md-2" type="submit">EDITAR</button>
+				<a th:href="@{/pdc/inicio}" id="cancel" class="btn btn-secondary">CANCELAR</a>
+		</form>
+	</div>
+	</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>PORTAL DE CAPACITACION</title>
+</head>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<body>
+	<header th:replace="/layouts/header::header"></header>
+	<h1>CONTACTANOS</h1>
+		<img alt="CONTACTO" th:src= @{/images/CONTACTO.jpg}>
+		
+	<form action="">
+		<label>Nombre y Apellido: </label>
+		<input id="idapellido" type="text">
+		<br/>
+		<label>Provincia:</label>
+		<select name="provincia">
+			<option value="JUJUY">JUJUY</option>
+			<option value="SALTA">SALTA</option>
+			<option value="TUCUMAN">TUCUMAN</option>
+			<option value="CORDOBA">CORDOBA</option>
+		</select>
+		<br>
+		<label>Telefono:</label>
+		<input id="idtelefono" type="number">
+		<br/>
+		<label>Correo electronico</label>
+		<input id="idcorreo" type="email">
+		<br/>
+		<label>Estado Civil</label>
+		<br>
+		<input id=idcasado type="radio" value="casado" name="tipoestado">
+		<label for="idcasado">Casado</label>
+		<br/>
+		<input id=idsoltero type="radio" value="soltero" name="tipoestado">
+		<label for="idsoltero">Soltero</label>
+		<br/>
+		<input id=idotro type="radio" value="otro" name="tipoestado">
+		<label for="idotro">Otro</label>
+		<br/>
+		<label>mensaje</label>
+		<input id="idmensaje" type="text">
+		<br/>
+		
+		<button type="submit">ENVIAR</button>
+	</form>
+		<footer th:insert="/layouts/footer::footer"></footer>
+	
+</body>
+</html>

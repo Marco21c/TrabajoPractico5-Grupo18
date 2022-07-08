@@ -43,6 +43,15 @@
       <input type="number" th:field="*{telefono}" class="form-control" id="inputTelefono3">
     </div>
   </div>
+  <div class="row mb-3">
+    <label for="inputCurso3" class="col-sm-2 col-form-label">Curso</label>
+    <div class="col-sm-10">
+      <select th:field="*{curso.codigo}" class="form-control" id="inputCurso3" >
+		<option th:each="c:${listaCursos}" th:value="${c.codigo}" th:text="${c.titulo}" />
+	  </select>
+	  <div class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></div>
+    </div>
+  </div>
    <button type="submit" class="btn btn-primary">Enviar</button>
    <a th:href="@{/pdc/inicio}" class="btn btn-primary" role="button" >Cancelar</a>
  </form> 

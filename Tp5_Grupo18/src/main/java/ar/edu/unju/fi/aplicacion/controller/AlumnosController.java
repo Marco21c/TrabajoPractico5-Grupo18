@@ -15,10 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import ar.edu.unju.fi.aplicacion.entity.Alumno;
 import ar.edu.unju.fi.aplicacion.service.IAlumnoService;
-import ar.edu.unju.fi.aplicacion.util.ListaAlumnos;
+import ar.edu.unju.fi.aplicacion.service.ICursoService;
 
 @Controller
 @RequestMapping("/alumno")
@@ -27,7 +26,9 @@ public class AlumnosController {
 	@Autowired
 	@Qualifier("AlumnoServiceImpList")
 	private IAlumnoService alumnoService;
-	ListaAlumnos lista = new ListaAlumnos();
+	@Autowired
+    @Qualifier("CursoServiceImp")
+    private ICursoService cursoService;
 	
 	private static final Log LOGGER = LogFactory.getLog(AlumnosController.class);
 	
@@ -35,6 +36,7 @@ public class AlumnosController {
 	public String GetDocentePage(Model model){	
 	//Alumno alumno = new Alumno();
 	model.addAttribute("alumno", alumnoService.getAlumno());
+	model.addAttribute("listaCursos", cursoService.getListaCursos());
     return "nuevo_alumno";
     }
 	
@@ -43,6 +45,7 @@ public class AlumnosController {
 		if(bindingResult.hasErrors()) {
 			ModelAndView mav = new ModelAndView("nuevo_alumno");
 			mav.addObject("alumno", alu);
+			mav.addObject("listaCursos", cursoService.getListaCursos());
 			return mav;
 		}
 		ModelAndView mav = new ModelAndView("redirect:/alumno/listaAlumnos");
@@ -57,7 +60,7 @@ public class AlumnosController {
 	@GetMapping("/listaAlumnos")
 	public ModelAndView getListaDocentesPage() {
 		ModelAndView mav = new ModelAndView("tabla_alumnos");
-		mav.addObject("alumnos", alumnoService.getListaAlumno().getAlumnos());
+		mav.addObject("alumnos", alumnoService.getListaAlumno());
 		return mav;
 	}
 	
@@ -66,6 +69,7 @@ public class AlumnosController {
 		ModelAndView mav = new ModelAndView("edicion_alumno");
 		Alumno alumno = alumnoService.buscarAlumno(dn);
 		mav.addObject("alumno", alumno);
+		mav.addObject("cursos", cursoService.getListaCursos());
 		return mav;
 	}
 	
@@ -74,6 +78,7 @@ public class AlumnosController {
 	if(bindingResult.hasErrors()) {
 		LOGGER.info("ocurrio un error"+alumno);
 		ModelAndView mav = new ModelAndView("edicion_alumno");
+		mav.addObject("cursos", cursoService.getListaCursos());
 		mav.addObject("alumno", alumno);
 		return mav;
 	}
@@ -86,7 +91,7 @@ public class AlumnosController {
 	public ModelAndView eliminarDocente(@PathVariable("legajo")int dni) {
 		ModelAndView mav = new ModelAndView("redirect:/alumno/listaAlumnos");
 		alumnoService.eliminarAlumno(dni);
-				return mav;
+		return mav;
 	}
 	
 }

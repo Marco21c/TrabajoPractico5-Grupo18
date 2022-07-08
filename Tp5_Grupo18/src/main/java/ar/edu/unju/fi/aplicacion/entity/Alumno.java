@@ -1,14 +1,13 @@
 package ar.edu.unju.fi.aplicacion.entity;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -28,9 +27,10 @@ public class Alumno {
 	private long telefono;
 	@Column(name="ESTADO_ALU")
 	private boolean estado;
-	@ManyToMany(fetch= FetchType.EAGER)
-	@JoinTable(name="alumnos_cursos", joinColumns = @JoinColumn(name="alumno_id"),inverseJoinColumns = @JoinColumn(name="cursos_id"))
-	private List<Curso> cursos;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name= "ID_CURSO")
+	private Curso curso;
 	
 	public Alumno() {
 	}
@@ -74,12 +74,13 @@ public class Alumno {
 		this.telefono = telefono;
 	}
 
-	public List<Curso> getCursos() {
-		return cursos;
+	
+	public Curso getCurso() {
+		return curso;
 	}
 
-	public void setCursos(List<Curso> cursos) {
-		this.cursos = cursos;
+	public void setCurso(Curso curso) {
+		this.curso = curso;
 	}
 
 	public boolean isEstado() {

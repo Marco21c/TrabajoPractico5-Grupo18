@@ -11,8 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.FutureOrPresent;
@@ -49,12 +48,12 @@ public class Curso {
 	@OneToMany(mappedBy = "curso" , cascade = CascadeType.ALL)
 	private List<Beca> beca = new ArrayList<>();
 	
-	@ManyToMany(mappedBy ="cursos")
+	@OneToMany(mappedBy = "curso" , cascade = CascadeType.ALL)
 	private List<Alumno> alumnos;
 	
-	@ManyToMany(fetch= FetchType.EAGER)
-	@JoinTable(name="cursos_docentes", joinColumns = @JoinColumn(name="cursos_id"),inverseJoinColumns = @JoinColumn(name="docentes_id"))
-	private List<Docente> docentes;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name= "LEGAJO_DOC")
+	private Docente docente;
 	
 	public Curso() {
 		
@@ -133,13 +132,13 @@ public class Curso {
 		this.alumnos = alumnos;
 	}
 
-	public List<Docente> getDocentes() {
-		return docentes;
+	public Docente getDocente() {
+		return docente;
 	}
 
-	public void setDocentes(List<Docente> docentes) {
-		this.docentes = docentes;
+	public void setDocente(Docente docente) {
+		this.docente = docente;
 	}
-	
+
 	
 }

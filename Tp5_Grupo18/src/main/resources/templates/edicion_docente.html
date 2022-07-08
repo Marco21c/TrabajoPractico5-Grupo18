@@ -49,15 +49,6 @@
 				  <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
 				</div>
 		 </div>
-		 <div class="row mb-3">
-                <label for="inputCurso" class="col-sm-2 col-form-label">Curso</label>
-                 <div class="col-sm-10">
-                   <select th:field="*{curso.titulo}" class=" form-control" id="inputCurso" >
-                     <option th:each="c:${listaCursos}" th:value="${c.titulo}" th:text="${c.titulo}"/>
-                   </select> 
-                  <div class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></div>
-                 </div>
-         </div>
 				<button class="btn btn-primary me-md-2" type="submit">EDITAR</button>
 				<a th:href="@{/pdc/inicio}" id="cancel" class="btn btn-secondary">CANCELAR</a>
 		</form>

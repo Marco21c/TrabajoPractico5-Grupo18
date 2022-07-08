@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+  <head>
+		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>	
+		<meta charset="utf-8">
+		<title>INICIO</title>
+  </head>
+  <body>
+	<header th:replace="/layouts/header::header"></header> 
+    <h1> PORTAL DE CAPACITACION</h1>		
+ 
+   <div class="container px-0">
+     <div class="row gx-5">
+      <div class="col">
+      <div>
+        <section> 
+         <h2> Cursos con inscripciones abiertas</h2>	    
+           <ol >
+             <li><a href="#">IDIOMAS.</a></li>
+             <li><a href="#">DISEÑO.</a></li>
+             <li><a href="#">DESARROLLO.</a></li>
+             <li><a href="marketing.html">MARKETING.</a></li>
+             <li><a href="#">CONFERENCIAS.</a></li>
+           </ol>	
+        </section>
+      </div> 
+      </div>
+      <div class="col">
+      <div>
+          <img height= "400 px" th:src= @{/images/images.png} alt="imagen de inicio" title="Titulo">
+      </div>
+      </div>
+     </div>
+   </div> 
+    <footer th:replace="/layouts/footer::footer"></footer>
+	</body>
+</html>

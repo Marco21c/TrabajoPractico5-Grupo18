@@ -21,6 +21,7 @@
  <th> Fecha inicio</th>
  <th> Horas</th>
  <th> Modalidad</th>
+ <th> Docente </th>
  <th> Opciones</th>
  </tr>
  <tr th:each="c:${cursos}">
@@ -30,6 +31,7 @@
  <td th:text="${#temporals.format(c.fechai,'dd/MM/yyyy')}"></td>
  <td th:text="${c.hora}"></td>
  <td th:text="${c.modalidad}"></td>
+  <td  th:text="${c.docente.apellido}+', '+${c.docente.nombre}"></td>
     <td>
     
           <a th:href="@{/curso/editarCurso/}+${c.codigo}" id="editarCurso" type="button" class="btn btn-warning">Editar</a>

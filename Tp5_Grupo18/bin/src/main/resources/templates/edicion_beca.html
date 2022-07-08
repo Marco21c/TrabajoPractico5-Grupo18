@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<meta charset="ISO-8859-1">
+<title>EDITAR BECA</title>
+</head>
+<body>
+<header th:replace="/Layouts/header :: header"></header>
+	<div class="container">
+		<div class="row justify-content-center mt-5 pt-5">
+		<div class="col-md-5 ">
+		 <h2>EDITAR BECA</h2>
+		 <form th:action="@{/beca/modificar}" th:object="${beca}" method="POST"> 
+		  <div class="row mb-3">
+		    <input type="hidden" th:field="*{codigo}"/>
+		    <label for="inputCodigo3" class="col-sm-2 col-form-label">Codigo</label>
+		    <div class="col-sm-10">
+		      <input type="number" th:field="*{codigo}" class="form-control" id="inputCodigo3" disabled="disabled">
+		      <div class="text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
+		    </div>
+		  </div>
+		  <div class="row mb-3">
+    <label for="inputCurso3" class="col-sm-2 col-form-label">Curso</label>
+    <div class="col-sm-10">
+      <select th:field="*{curso.codigo}" class="form-control" id="inputCurso3" >
+		<option th:each="c:${listaCurso}" th:value="${c.codigo}" th:text="${c.titulo}" />
+	  </select>
+	  <div class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></div>
+    </div>
+  </div>
+		  <div class="row mb-3">
+    		<label for="inputFinicio3" class="col-sm-2 col-form-label">Fecha de inicio</label>
+    		<div class="col-sm-10">
+	      		<input type="date"  th:field="*{fecha_inicio}" class="form-control" id="inputFinicio3" >
+	      		<div class="text-danger" th:if="${#fields.hasErrors('fecha_inicio')}" th:errors="*{fecha_inicio}"></div>
+    		</div>
+  		</div>
+	  <div class="row mb-3">
+	    <label for="inputFcierre3" class="col-sm-2 col-form-label">Fecha de cierre</label>
+	    <div class="col-sm-10">
+	      <input type="date" th:field="*{fecha_cierre}" class="form-control" id="inputFcierre3" >
+	      <div class="text-danger" th:if="${#fields.hasErrors('fecha_cierre')}" th:errors="*{fecha_cierre}"></div>
+	    </div>
+	  </div>
+	  
+	
+		   <button type="submit" class="btn btn-primary">Enviar</button>
+		   <a th:href="@{/beca/listaBecas}" class="btn btn-primary" role="button" data-bs-toggle="button">Cancelar</a>
+		 </form> 
+		</div>
+		</div>
+	</div>
+</body>
+</html>

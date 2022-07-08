@@ -20,7 +20,6 @@
 					 <th> Apellidos</th>
 					 <th> E-mail</th>
 					 <th> Telefono</th>
-					 <th> Curso </th>
 					 <th> Opciones</th>
 				 </tr>
 					 <tr th:each="d: ${docentes}">
@@ -29,7 +28,6 @@
 						 <td th:text="${d.apellido}"></td>
 						 <td th:text="${d.email}"></td>
 						 <td th:text="${d.telefono}"></td>
-						 <td th:text="${d.curso.titulo}"></td>
 						  <td>
 							 <a th:href="@{/docente/editar/}+${d.legajo}" id="editarDocente" type="button" class="btn btn-warning">Editar</a>
 							 <a th:href="@{/docente/eliminar/}+${d.legajo}" id="eliminarDocente" type="button" class="btn btn-danger">Eliminar</a>
